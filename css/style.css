@@ -218,6 +218,11 @@ div.hamburger-menu {
   scroll-snap-align: start;
 }
 
+#projects {
+  min-height: 50vh;
+  height: 100%;
+}
+
 #footer_area {
   min-height: 100vh;
   height: 100%;
@@ -289,7 +294,6 @@ section .section_wrap {
 #home .work {
   display: flex;
   flex-direction: row;
-  align-content: center;
   align-items: center;
   gap: 5px;
 }
@@ -428,7 +432,7 @@ img.image_preview_shot {
   position: absolute;
   bottom: 0;
   width: auto;
-  height: auto;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -630,6 +634,7 @@ ul.navbar-nav {
 
 /** ---980px --- **/
 @media only screen and (max-width: 980px) {
+  
   #navbar {
     position: relative;
   }
@@ -644,8 +649,7 @@ ul.navbar-nav {
   }
 
   #nav-char {
-    font-size: 20px;
-    /* padding-left: 10px; */
+    font-size: 24px;
     min-width: 0;
   }
 
@@ -662,7 +666,6 @@ ul.navbar-nav {
 
   #projects {
     padding: 20px 0;
-	min-height: 50vh;
   }
 
   section .section_wrap {
@@ -670,16 +673,49 @@ ul.navbar-nav {
   }
 
   #home .home_template {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
     grid-template-areas:
       "header"
       "header"
       "main"
-      "footer"
       "footer";
     gap: 0px;
-    height: calc(100vh - 130px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 200px auto 50px 75px;
+    height: auto;
+  }
+
+  #home .title{       
+    grid-column: 1/3;
+  }
+  
+  #home p, 
+  #home div.mail-to {
+    font-size: 1rem;    
+    grid-column: 1/3;
+  }
+
+  #home div.mail-to {
+    display: inline-flex;
+    gap: 10px;
+  }
+  
+  #home div.experience{
+    grid-column: 1/1;
+  }
+
+  #home div.work {
+    grid-column: 2/2;
+  }
+
+  #home div.experience .item-1,
+  #home div.work .item-1{
+    font-size: 3.5rem;
+    width: 3.5rem;
+  }
+
+  #home div.experience .item-2 p,
+  #home div.work .item-2 p{
+    font-size: 1.1rem;
   }
 
   #home .home_template > p {
@@ -692,12 +728,6 @@ ul.navbar-nav {
     font-size: 4rem;
   }
 
-  #home p,
-  #home div.mail-to {
-    grid-column: 1/1;
-    font-size: 16px;
-  }
-
   .experience .item-1 {
     font-size: 2.5rem;
     width: 50px;
@@ -706,11 +736,7 @@ ul.navbar-nav {
   #home img {
     width: 50px;
     height: 50px;
-    /* margin-bottom: 14px; */
-  }
-
-  #experience .title {
-    text-align: left;
+    margin-bottom: 14px;
   }
 
   #projects .title {
@@ -721,34 +747,9 @@ ul.navbar-nav {
 
   #projects .title a {
     font-size: 1rem;
+    margin-left: 5px;
   }
-  
-  .project-tile h1 {
-	font-size: 1rem;
-    margin-bottom: 0;
-  }
-  
-  .project-tile p {
-	font-size: 0.625rem;
-  }
-  
-  .project-tile p.tag{
-	font-size: 0.5rem;
-  }
-
-  .project-tile {
-    width: 350px;
-  }
-
-  .glider-track {
-    width: calc(350px * 5);
-  }
-  
-  img.image_preview_shot{
-    width: auto;
-    height: 100%;
-  }
-  
+     
   .footer_wrap {
     flex-direction: column;
     padding: 0;
@@ -825,8 +826,7 @@ ul.navbar-nav {
     height: auto;
   }
   
-  #home .title{
-       
+  #home .title{       
     grid-column: 1/3;
   }
   
@@ -873,6 +873,27 @@ ul.navbar-nav {
     padding: 3vh;
    }
 
+   .project-tile h1 {
+	font-size: 1rem;
+    margin-bottom: 0;
+  }
+ 
+  .project-tile p {
+	font-size: 0.625rem;
+  }
+  
+  .project-tile p.tag{
+	font-size: 0.5rem;
+  }
+
+  .project-tile {
+    width: 450px;
+  }
+
+  .glider-track {
+    width: calc(350px * 5);
+  }
+    
   .glider-track {
     width: calc(300px * 5);
   }
