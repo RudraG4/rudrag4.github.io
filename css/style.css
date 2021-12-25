@@ -861,11 +861,11 @@ ul.navbar-nav {
         content: "";
     }
     #experience h2.company-name, #experience h2.work-role{
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     #experience p.work-duration,
     #experience p.work-description{
-        font-size: 0.85rem;
+        font-size: 1rem;
     }
     #experience h2.company-name, #experience h2.work-role{
         margin-bottom: 0;
