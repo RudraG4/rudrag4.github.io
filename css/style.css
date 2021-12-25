@@ -385,7 +385,7 @@ section .section_wrap {
     padding: 1.25rem;
 	display: grid;
     place-items: center;
-    height: calc(100vh - 12rem);
+    min-height: calc(100vh - 12rem);
     margin: 0 auto;
 }
 
@@ -838,6 +838,38 @@ ul.navbar-nav {
         height: 50px;
         margin-bottom: 14px;
     }
+	#experience .work_exp_wrapper{
+        min-height: calc(100vh - 7rem);
+    }
+    #experience .grid_wrapper {
+        grid-template-columns: 1fr;
+        row-gap: 0;
+    }
+    #experience .grid_wrapper div.grid-cell {
+        border-left: 1px dotted;
+    }
+    #experience .grid_wrapper div.grid-cell:nth-child(odd) {
+        border-right: 0 !important;
+    }
+    #experience .grid_wrapper div.grid-cell:nth-child(even) {
+        margin-bottom: 15px
+    }
+    #experience .grid-cell.workplace::before {
+        content: "\25CF";
+    }
+    #experience .grid-cell.experience-descr::before {
+        content: "";
+    }
+    #experience h2.company-name, #experience h2.work-role{
+        font-size: 1.2rem;
+    }
+    #experience p.work-duration,
+    #experience p.work-description{
+        font-size: 0.85rem;
+    }
+    #experience h2.company-name, #experience h2.work-role{
+        margin-bottom: 0;
+    }
     #projects .title {
         align-items: flex-start;
         flex-direction: column;
@@ -944,7 +976,7 @@ ul.navbar-nav {
         font-size: 0.6rem;
     }
 	#experience .work_exp_wrapper{
-        height: calc(100vh - 5rem);
+        min-height: calc(100vh - 5rem);
     }
     #experience .grid_wrapper {
         grid-template-columns: 1fr;
