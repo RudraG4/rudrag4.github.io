@@ -1,6 +1,7 @@
-var navMenu = document.getElementById("nav-menu");
-var hamMenu = document.getElementById("ham-menu");
-var hamBurger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
+const hamMenu = document.getElementById("ham-menu");
+const hamBurger = document.getElementById("hamburger");
+const splash = document.querySelector('.welcome-splash');
 
 function getOffset(el) {
   const rect = el.getBoundingClientRect();
@@ -26,7 +27,7 @@ function navMenuHandler(e) {
     var dataMenuId = e.target.parentNode.dataset.menuid;
     var selector = 'li[data-menuid="' + dataMenuId + '"]';
     document.querySelectorAll(selector).forEach(node => {
-      node.classList.toggle("active-window");
+		node.classList.toggle("active-window");
     });
     hamBurger.click();
   }
@@ -49,6 +50,12 @@ function animateOnScroll(event) {
   }
 }
 
+
+document.addEventListener('DOMContentLoaded', (e)=>{
+    setTimeout(()=>{
+        splash.classList.add('clear');
+    }, 2000);
+});
 navMenu.addEventListener("click", navMenuHandler);
 hamBurger.addEventListener("click", hamBurgerHandler);
 hamMenu.addEventListener("click", navMenuHandler);
