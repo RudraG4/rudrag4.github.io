@@ -54,7 +54,7 @@ function animateOnScroll(event) {
 document.addEventListener('DOMContentLoaded', (e)=>{
     setTimeout(()=>{
         splash.classList.add('clear');
-    }, 2000);
+    }, 3000);
 });
 navMenu.addEventListener("click", navMenuHandler);
 hamBurger.addEventListener("click", hamBurgerHandler);

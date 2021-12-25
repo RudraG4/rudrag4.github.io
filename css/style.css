@@ -28,6 +28,7 @@ a {
 
 .welcome-splash {
     display: flex;
+	flex-direction: column;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -36,6 +37,7 @@ a {
     background-color: white;
     opacity: 1;
     z-index: 1001;
+	transition: all .1s ease-in;
 }
 
 .welcome-splash.clear {
@@ -46,6 +48,8 @@ a {
 
 .welcome-splash h1 {
     font-family: 'Pacifico';
+	margin-top: -20px;
+	z-index: 1;
 }
 
 #navbar {
