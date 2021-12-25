@@ -383,6 +383,10 @@ section .section_wrap {
 
 #experience .work_exp_wrapper {
     padding: 1.25rem;
+	display: grid;
+    place-items: center;
+    height: calc(100vh - 12rem);
+    margin: 0 auto;
 }
 
 #experience .workplace {
@@ -938,6 +942,9 @@ ul.navbar-nav {
     #home div.experience .item-2 p,
     #home div.work .item-2 p {
         font-size: 0.6rem;
+    }
+	#experience .work_exp_wrapper{
+        height: calc(100vh - 5rem);
     }
     #experience .grid_wrapper {
         grid-template-columns: 1fr;
