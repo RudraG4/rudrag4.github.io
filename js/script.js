@@ -16,7 +16,7 @@ function isVisible(el) {
   const viewBottom = viewTop + window.innerHeight;
   const compareBottom = getOffset(el).top;
   const compareTop = getOffset(el).top + el.offsetHeight;
-  return compareBottom <= viewBottom && compareTop >= viewTop;
+  return compareBottom <= viewBottom ; //&& compareTop >= viewTop;
 }
 
 function navMenuHandler(e) {

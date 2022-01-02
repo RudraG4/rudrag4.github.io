@@ -47,7 +47,7 @@ a {
 }
 
 .welcome-splash h1 {
-    font-family: 'Pacifico';
+    font-family: Pacifico, Montserrat, Open Sans;
 	margin-top: -20px;
 	z-index: 1;
 }
@@ -102,7 +102,7 @@ a {
 
 #nav-char {
     font-size: 1.75rem;
-    font-family: Pacifico;
+    font-family: Pacifico, Montserrat, Open Sans;
     padding-right: 2rem;
     min-width: 300px;
     color: inherit;
@@ -144,54 +144,55 @@ a {
 }
 
 #ham-menu {
-    display: flex;
+    display: block;
+    visibility: hidden;
     position: fixed;
     right: 0px;
     top: 0px;
     width: 50%;
     height: 100%;
-    padding: 5px 5px;
+    padding: 5rem 5px;
     background: white;
     opacity: 0;
-    transform: translate(300px);
+    z-index: -9999;
+    transform: translateX(50%);
     flex-direction: column;
-    justify-content: space-evenly;
     transition: all 0.5s ease-in-out;
+    box-shadow: -1px 0px 7px 0px #27272761;
 }
 
 #ham-menu.is-show {
     transform: translateX(0);
+    visibility: visible;
     opacity: 1;
+    z-index: 5;
 }
 
 #ham-menu li {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    height: 100%;
+    display: block;
+    margin: 5px 0px;
+    border-left: 3px solid transparent;
 }
 
 #ham-menu li a {
     display: block;
-    padding: 5px 20px;
+    padding: 10px 20px;
     font-weight: inherit;
     color: inherit;
     text-transform: uppercase;
+    text-align: right;
 }
 
 #ham-menu li.active-window,
 #ham-menu li:hover {
-    padding: 5px 0px;
-    font-size: 24px;
     font-weight: 500;
     color: #286f6c;
-    background-color: #fafafa
+    background-color: #fafafa;
+    border-left: 3px solid #d7720c;
 }
 
 #nav-burger {
     display: none;
-    flex: none;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
@@ -265,7 +266,7 @@ section .section_wrap {
     grid-template-areas: "header header" "main ." "footer footer";
     align-items: center;
     gap: 10px;
-    font-family: Poppins;
+    font-family: Poppins, Montserrat, Open Sans;
     font-weight: 600;
     height: calc(100% - 7.5rem);
 }
@@ -345,7 +346,7 @@ section .section_wrap {
 .experience .item-1 {
     font-size: 3rem;
     font-weight: bold;
-    font-family: Montserrat;
+    font-family: Montserrat, Open Sans;
     text-align: center;
 }
 
@@ -378,7 +379,7 @@ section .section_wrap {
     align-items: start;
     justify-content: start;
     row-gap: 10px;
-    font-family: 'Poppins';
+    font-family: Poppins, Montserrat, Open Sans;
 }
 
 #experience .work_exp_wrapper {
@@ -466,28 +467,24 @@ section .section_wrap {
 }
 
 .glider-contain {
-    width: 100%;
-    margin: 0;
-    position: relative;
+    padding: 0 20px;
     z-index: 5;
 }
 
 .glider-scrollable {
-    scroll-snap-type: x;
     user-select: none;
-    cursor: grab;
     overflow-y: hidden;
     transform: translateZ(0);
     -webkit-overflow-scrolling: touch;
 }
 
 .glider-track {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+    gap: 1rem;
     margin: 0;
     padding: 2rem 0;
     z-index: 5;
-    scroll-snap-type: y mandatory;
-    width: calc(550px * 6);
 }
 
 .project-tile {
@@ -496,16 +493,13 @@ section .section_wrap {
     color: white;
     font-weight: 600;
     display: block;
-    position: relative;
-    margin-left: 1.2rem;
-    padding: 5vh;
-    padding-bottom: 0;
-    width: 530px;
-    height: 450px;
-    border-radius: 32px;
-    box-shadow: 9px -7px 20px 0px rgb(0 0 0 / 15%);
+    padding: 1.25rem;
     scroll-snap-align: center;
     overflow: hidden;
+    flex-direction: column;
+    transition: all .5s cubic-bezier(0.4, 0, 1, 1);
+    transform: translateY(60px);
+    opacity: 0;
 }
 
 .project-tile p.tag {
@@ -541,12 +535,14 @@ p.frontend-tag::before {
     margin-top: 10px;
 }
 
+.picture_wrapper a {
+    display: block;
+}
+
 img.image_preview_shot {
     display: block;
-    position: absolute;
-    bottom: 0;
-    width: auto;
-    height: 100%;
+    width: -webkit-fill-available;
+    height: auto;
     object-fit: contain;
 }
 
@@ -580,20 +576,8 @@ img.image_preview_shot {
 }
 
 .anim-slide {
-    animation: slide 1s;
-    animation-delay: 0.5s;
-}
-
-@keyframes slide {
-    0% {
-        transform: translateX(0%);
-    }
-    50% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+    transform: translateY(0px);
+    opacity: 1;
 }
 
 #contact {
@@ -601,7 +585,7 @@ img.image_preview_shot {
     padding-top: 0;
     padding-bottom: 0;
     position: relative;
-    font-family: Poppins;
+    font-family: Poppins, Montserrat, Open Sans;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -716,7 +700,7 @@ ul.navbar-nav {
 .footer-logo {
     border-right: 1px solid gainsboro;
     font-size: 1.5rem;
-    font-family: Pacifico;
+    font-family: Pacifico, Montserrat, Open Sans;
     padding-right: 2rem;
     margin-right: 2rem;
 }
@@ -771,6 +755,9 @@ ul.navbar-nav {
     }
     #navbar {
         border-bottom: 1px solid gainsboro;
+    }
+    #ham-menu li a {
+        font-size: 24px;
     }
     #navbar,
     #home,
@@ -929,6 +916,9 @@ ul.navbar-nav {
     #nav-burger div.fa-bars:before {
         font-size: 13px;
     }
+    #ham-menu li a {
+        font-size: 1rem;
+    }
     #home .title h1 {
         font-size: 2.25rem;
     }
@@ -1007,11 +997,6 @@ ul.navbar-nav {
     #experience h2.company-name, #experience h2.work-role{
         margin-bottom: 0;
     }
-    .project-tile {
-        width: 300px;
-        height: 225px;
-        padding: 3vh;
-    }
     .project-tile h1 {
         font-size: 1rem;
         margin-bottom: 0;
@@ -1021,15 +1006,6 @@ ul.navbar-nav {
     }
     .project-tile p.tag {
         font-size: 0.5rem;
-    }
-    .project-tile {
-        width: 450px;
-    }
-    .glider-track {
-        width: calc(350px * 5);
-    }
-    .glider-track {
-        width: calc(300px * 5);
     }
     .footer_banner>p {
         margin-bottom: 2rem;
