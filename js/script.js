@@ -2,6 +2,7 @@ const navMenu = document.getElementById("nav-menu");
 const hamMenu = document.getElementById("ham-menu");
 const hamBurger = document.getElementById("hamburger");
 const splash = document.querySelector('.welcome-splash');
+const skillBtns = document.querySelectorAll('.skill-btn-grp input[type=radio]');
 
 function getOffset(el) {
   const rect = el.getBoundingClientRect();
@@ -68,6 +69,15 @@ function animateOnScroll(event) {
   }, 500);
 }
 
+function skillBtnHandler(event) {
+  document.querySelectorAll(`div.skill-detail-card[data-detailname=${event.target.name}].active`).forEach(node => {
+    node.classList.remove("active");
+  });
+  document.querySelectorAll(`div.skill-detail-card[data-detailbtnid=${event.target.id}]:not(.active)`).forEach(node => {
+    node.classList.toggle('active');
+  });
+  event.stopPropagation();
+}
 
 document.addEventListener('DOMContentLoaded', (e) => {
   setTimeout(() => {
@@ -78,3 +88,4 @@ navMenu.addEventListener("click", navMenuHandler);
 hamBurger.addEventListener("click", hamBurgerHandler);
 hamMenu.addEventListener("click", navMenuHandler);
 window.addEventListener("scroll", animateOnScroll);
+skillBtns.forEach((btn) => btn.addEventListener('change', skillBtnHandler));
