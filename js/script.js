@@ -7,7 +7,8 @@ function getOffset(el) {
   const rect = el.getBoundingClientRect();
   return {
     left: rect.left + window.scrollX,
-    top: rect.top + window.scrollY };
+    top: rect.top + window.scrollY
+  };
 
 }
 
@@ -16,19 +17,23 @@ function isVisible(el) {
   const viewBottom = viewTop + window.innerHeight;
   const compareBottom = getOffset(el).top;
   const compareTop = getOffset(el).top + el.offsetHeight;
-  return compareBottom <= viewBottom ; //&& compareTop >= viewTop;
+  // const hviewBottom = viewBottom - (viewBottom * 0.6);
+  return compareBottom <= viewBottom; //&& compareTop >= viewTop;
+}
+
+function setActiveWindow(menuId) {
+  document.querySelectorAll("li.active-window").forEach(node => {
+    node.classList.remove("active-window");
+  });
+  var selector = 'li[data-menuid="' + menuId + '"]';
+  document.querySelectorAll(selector).forEach(node => {
+    node.classList.toggle("active-window");
+  });
 }
 
 function navMenuHandler(e) {
   if (e.target && e.target.matches("a.nav-link")) {
-    document.querySelectorAll("li.active-window").forEach(node => {
-      node.classList.remove("active-window");
-    });
-    var dataMenuId = e.target.parentNode.dataset.menuid;
-    var selector = 'li[data-menuid="' + dataMenuId + '"]';
-    document.querySelectorAll(selector).forEach(node => {
-		node.classList.toggle("active-window");
-    });
+    setActiveWindow(e.target.parentNode.dataset.menuid);
     hamBurger.click();
   }
   e.stopPropagation();
@@ -40,21 +45,34 @@ function hamBurgerHandler(e) {
 }
 
 function animateOnScroll(event) {
-  let elements = document.getElementsByClassName("project-tile");
-  for (el of elements) {
-    if (isVisible(el)) {
-      el.classList.add("anim-slide");
-    } else {
-      el.classList.remove("anim-slide");
+  clearTimeout(animateOnScroll.timeRef);
+  animateOnScroll.timeRef = setTimeout(function () {
+    let sections = document.getElementsByTagName("section");
+    let footers = document.getElementsByTagName("footer");
+    for (el of [...sections, ...footers]) {
+      if (isVisible(el)) {
+        if (el.id == 'projects') {
+          let projectTiles = document.querySelectorAll('div.project-tile:not(.anim-slide)');
+          for (pel of projectTiles) {
+            if (isVisible(pel)) {
+              pel.classList.add("anim-slide");
+            }
+          }
+        }
+        let activeWindows = document.querySelectorAll("li.active-window");
+        if (activeWindows && activeWindows.length && activeWindows[0].dataset.menuid != el.id) {
+          setActiveWindow(el.id);
+        }
+      }
     }
-  }
+  }, 500);
 }
 
 
-document.addEventListener('DOMContentLoaded', (e)=>{
-    setTimeout(()=>{
-        splash.classList.add('clear');
-    }, 3000);
+document.addEventListener('DOMContentLoaded', (e) => {
+  setTimeout(() => {
+    splash.classList.add('clear');
+  }, 4000);
 });
 navMenu.addEventListener("click", navMenuHandler);
 hamBurger.addEventListener("click", hamBurgerHandler);
