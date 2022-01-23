@@ -428,8 +428,49 @@ div.inprogess_wrapper p {
 #skills .skills_template {
     display       : flex;
     flex-direction: column;
-    /* height     : 80vh; */
     position      : relative;
+}
+
+li.skill-tab-body {
+    display: none;
+}
+
+li.skill-tab-body.active {
+    display: flex;
+}
+
+ul.skill-tab-header-wrapper {
+    border-bottom  : 1px solid gainsboro;
+    overflow       : auto;
+    white-space    : nowrap;
+    scrollbar-color: gainsboro transparent;
+    user-select    : none;
+}
+
+ul.skill-tab-header-wrapper::-webkit-scrollbar {
+    height: 5px;
+}
+
+ul.skill-tab-header-wrapper::-webkit-scrollbar-thumb {
+    background-color: gainsboro;
+}
+
+ul li.skill-tab-head {
+    min-width    : 100px;
+    min-height   : 25px;
+    line-height  : 25px;
+    padding      : 5px 10px;
+    border-bottom: 3px solid transparent;
+    cursor       : pointer;
+    display      : inline-block;
+}
+
+ul li.skill-tab-head:not(.active):hover {
+    background-color: #f8f8f8;
+}
+
+ul li.skill-tab-head.active {
+    border-bottom-color: var(--primary-color);
 }
 
 #skills .skills_wrapper {
@@ -442,10 +483,10 @@ div.inprogess_wrapper p {
 }
 
 img.skill-img {
-    width     : 25%;
+    width     : 50%;
     position  : absolute;
-    left      : 28%;
-    top       : 33%;
+    left      : 25%;
+    top       : 25%;
     transition: all .1s ease-in-out;
     z-index   : 10;
 }
@@ -455,6 +496,7 @@ img.skill-img {
     background-color     : white;
     display              : grid;
     grid-template-columns: 40% 60%;
+    grid-template-rows   : 200px;
     height               : 200px;
     box-shadow           : 0 20px 40px -15px rgba(0, 0, 0, 0.25);
     position             : relative;
@@ -464,20 +506,22 @@ img.skill-img {
 
 .skill-before {
     width           : -webkit-fill-available;
+    width           : -moz-available;
     background-color: var(--primary-color);
     padding         : 10px;
     display         : flex;
     flex-direction  : column;
     justify-content : space-between;
+    position        : relative;
 }
 
 .skill-after {
     width           : 100%;
-    height          : 100%;
     background-color: white;
     display         : flex;
     justify-content : flex-end;
     position        : relative;
+    overflow-y      : auto;
 }
 
 .skill-before p {
@@ -551,9 +595,8 @@ img.skill-img {
 }
 
 .skill-detail-card {
-    width          : fit-content;
-    height         : inherit;
-    padding        : 20px;
+    width          : 100%;
+    padding        : 15px;
     display        : none;
     flex-direction : column;
     justify-content: flex-end;
@@ -566,11 +609,34 @@ img.skill-img {
     display: flex;
 }
 
+.skill-detail-card ol {
+    padding-inline-start: 15px;
+}
+
+.skill-detail-card li {
+    margin-bottom: 8px;
+    font-size    : 0.8rem;
+}
+
+.skill-detail-card.certf {
+    justify-content: normal;
+    align-items    : normal;
+}
+
+.skill-detail-card.certf a {
+    text-decoration          : dotted;
+    text-decoration-thickness: from-font;
+    text-decoration-color    : darkblue;
+    text-decoration-skip-ink : auto;
+    text-decoration-line     : underline;
+}
+
 progress {
     appearance: none;
     margin    : 0;
     height    : 12px;
     border    : none;
+    width     : 100%;
 }
 
 progress[value]::-webkit-progress-bar {
@@ -579,6 +645,13 @@ progress[value]::-webkit-progress-bar {
 
 progress::-webkit-progress-value {
     background-color: #ffb200;
+}
+
+progress:hover::before {
+    content: attr(value);
+    position: absolute;
+    font-size: 10px;
+    left: 85%;
 }
 
 #experience .experience_template {
@@ -615,6 +688,7 @@ progress::-webkit-progress-value {
 
 #experience .grid_wrapper div.grid-cell {
     height  : -webkit-fill-available;
+    height  : -moz-available;
     padding : 10px;
     position: relative;
 }
@@ -711,7 +785,7 @@ progress::-webkit-progress-value {
     padding       : 1.25rem;
     overflow      : hidden;
     flex-direction: column;
-    transition    : all .5s cubic-bezier(0.4, 0, 1, 1);
+    transition    : all .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     transform     : translateY(60px);
     opacity       : 0;
 }
@@ -756,6 +830,7 @@ p.frontend-tag::before {
 img.image_preview_shot {
     display   : block;
     width     : -webkit-fill-available;
+    width     : -moz-available;
     height    : auto;
     object-fit: contain;
 }

@@ -3,6 +3,7 @@ const hamMenu = document.getElementById("ham-menu");
 const hamBurger = document.getElementById("hamburger");
 const splash = document.querySelector('.welcome-splash');
 const skillBtns = document.querySelectorAll('.skill-btn-grp input[type=radio]');
+const skillTabs = document.querySelectorAll('ul.skill-tab-header-wrapper li.skill-tab-head');
 
 function getOffset(el) {
   const rect = el.getBoundingClientRect();
@@ -10,7 +11,6 @@ function getOffset(el) {
     left: rect.left + window.scrollX,
     top: rect.top + window.scrollY
   };
-
 }
 
 function isVisible(el) {
@@ -23,13 +23,19 @@ function isVisible(el) {
 }
 
 function setActiveWindow(menuId) {
-  document.querySelectorAll("li.active-window").forEach(node => {
-    node.classList.remove("active-window");
-  });
+  document.querySelectorAll("li.active-window").forEach(node => node.classList.toggle("active-window"));
   var selector = 'li[data-menuid="' + menuId + '"]';
-  document.querySelectorAll(selector).forEach(node => {
-    node.classList.toggle("active-window");
-  });
+  document.querySelectorAll(selector).forEach(node => node.classList.toggle("active-window"));
+}
+
+function setActiveTab(e) {
+  if (e.target && e.target.matches('li.skill-tab-head')) {
+    document.querySelectorAll("ul.skill-tab-header-wrapper li.active").forEach(node => node.classList.remove("active"));
+    document.querySelectorAll("ul.skill-tab-body-wrapper li.skill-tab-body.active").forEach(node => node.classList.remove("active"));
+    var selector = 'ul.skill-tab-body-wrapper li[data-tabid="' + e.target.dataset.tabid + '"]';
+    document.querySelectorAll(selector).forEach(node => node.classList.toggle("active"));
+    e.target.classList.toggle('active');
+  }
 }
 
 function navMenuHandler(e) {
@@ -70,12 +76,8 @@ function animateOnScroll(event) {
 }
 
 function skillBtnHandler(event) {
-  document.querySelectorAll(`div.skill-detail-card[data-detailname=${event.target.name}].active`).forEach(node => {
-    node.classList.remove("active");
-  });
-  document.querySelectorAll(`div.skill-detail-card[data-detailbtnid=${event.target.id}]:not(.active)`).forEach(node => {
-    node.classList.toggle('active');
-  });
+  document.querySelectorAll(`div.skill-detail-card[data-detailname=${event.target.name}].active`).forEach(node => node.classList.remove("active"));
+  document.querySelectorAll(`div.skill-detail-card[data-detailbtnid=${event.target.id}]:not(.active)`).forEach(node => node.classList.toggle('active'));
   event.stopPropagation();
 }
 
@@ -89,3 +91,4 @@ hamBurger.addEventListener("click", hamBurgerHandler);
 hamMenu.addEventListener("click", navMenuHandler);
 window.addEventListener("scroll", animateOnScroll);
 skillBtns.forEach((btn) => btn.addEventListener('change', skillBtnHandler));
+skillTabs.forEach((tab) => tab.addEventListener('click', setActiveTab));
