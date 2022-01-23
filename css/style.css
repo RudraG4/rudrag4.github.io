@@ -584,7 +584,7 @@ img.skill-img {
     position     : absolute;
     left         : 50px;
     z-index      : 10;
-    width        : 150px;
+    width        : 100px;
     height       : 30px;
     background   : var(--ternary-color);
     color        : white;
@@ -648,10 +648,10 @@ progress::-webkit-progress-value {
 }
 
 progress:hover::before {
-    content: attr(value);
-    position: absolute;
+    content  : attr(value);
+    position : absolute;
     font-size: 10px;
-    left: 85%;
+    left     : 85%;
 }
 
 #experience .experience_template {
@@ -1231,6 +1231,41 @@ ul.navbar-nav {
     }
 }
 
+@media only screen and (max-width: 660px) {
+    #skills .skills_wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    img.skill-img {
+        width     : 30%;
+        position  : absolute;
+        left      : unset;
+        right     : 10px;
+        top       : 10px;
+        transition: all .1s ease-in-out;
+        z-index   : 10;
+    }
+
+    .skill-card {
+        grid-template-rows   : 40% 60%;
+        grid-template-columns: auto;
+    }
+
+    .skill-detail-card {
+        align-items: flex-start;
+    }
+
+    .skill-btn-grp {
+        display   : inline-flex;
+        column-gap: 5px;
+    }
+
+    .skill-btn-grp input[type="radio"]::after {
+        bottom: -25px;
+        left  : 5px;
+    }
+
+}
 
 /** --- 430px  --- **/
 
@@ -1299,6 +1334,39 @@ ul.navbar-nav {
     #home div.experience .item-2 p,
     #home div.work .item-2 p {
         font-size: 0.6rem;
+    }
+
+    #skills .skills_wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    img.skill-img {
+        width     : 30%;
+        position  : absolute;
+        left      : unset;
+        right     : 10px;
+        top       : 10px;
+        transition: all .1s ease-in-out;
+        z-index   : 10;
+    }
+
+    .skill-card {
+        grid-template-rows   : 40% 60%;
+        grid-template-columns: auto;
+    }
+
+    .skill-detail-card {
+        align-items: flex-start;
+    }
+
+    .skill-btn-grp {
+        display   : inline-flex;
+        column-gap: 5px;
+    }
+
+    .skill-btn-grp input[type="radio"]::after {
+        bottom: -25px;
+        left  : 5px;
     }
 
     #experience .work_exp_wrapper {
