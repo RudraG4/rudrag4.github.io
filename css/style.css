@@ -1233,7 +1233,7 @@ ul.navbar-nav {
 
 @media only screen and (max-width: 660px) {
     #skills .skills_wrapper {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
     img.skill-img {
@@ -1336,8 +1336,9 @@ ul.navbar-nav {
         font-size: 0.6rem;
     }
 
+/*
     #skills .skills_wrapper {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
     img.skill-img {
@@ -1367,7 +1368,7 @@ ul.navbar-nav {
     .skill-btn-grp input[type="radio"]::after {
         bottom: -25px;
         left  : 5px;
-    }
+    }*/
 
     #experience .work_exp_wrapper {
         min-height: calc(100vh - 5rem);
