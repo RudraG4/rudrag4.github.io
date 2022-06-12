@@ -3,22 +3,20 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rudra Gowda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Rudra Gowda - Software Engineer</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./images/logo-dark.png" type="image/png">
   <script src='https://use.fontawesome.com/8ed3714e5b.js'></script>
 </head>
 
 <body>
-  <div class="welcome-splash">
-    <div class="live"></div>
-  </div>
   <nav id="navbar" class="nav">
-    <div id="nav-char">Rudra Gowda</div>
+    <img class="logo" src="./images/logo-dark.png" width="40" height="auto" />
     <ul id="nav-menu" class="nav-list">
       <li class="active-window" data-menuId='home'><a class="nav-link" href="#home">Home</a></li>
       <li data-menuId='skills'><a class="nav-link" href="#skills">Skills</a></li>
@@ -26,19 +24,23 @@
       <li data-menuId='projects'><a class="nav-link" href="#projects">Projects</a></li>
       <li data-menuId='contact'><a class="nav-link" href="#contact">Contact</a></li>
     </ul>
-    <div id="nav-contact">
-      <a href="tel:+918553207670" title='Call'></a>
-    </div>
-    <div id="nav-burger">
-      <div id="hamburger" class="bars"></div>
-      <div class="hamburger-menu">
-        <ul id="ham-menu" class="nav-list">
-          <li class="active-window" data-menuId='home'><a class="nav-link" href="#home">Home</a></li>
-          <li data-menuId='skills'><a class="nav-link" href="#skills">Skills</a></li>
-          <li data-menuId='experience'><a class="nav-link" href="#experience">Experience</a></li>
-          <li data-menuId='projects'><a class="nav-link" href="#projects">Projects</a></li>
-          <li data-menuId='contact'><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
+    <div id="nav-right-menu">
+      <img id="nav-theme" src="./images/sun.png" width="30" height="auto" />
+      <div id="nav-burger">
+        <div id="hamburger" class="bars">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="hamburger-menu">
+          <ul id="ham-menu" class="nav-list">
+            <li class="active-window" data-menuId='home'><a class="nav-link" href="#home">Home</a></li>
+            <li data-menuId='skills'><a class="nav-link" href="#skills">Skills</a></li>
+            <li data-menuId='experience'><a class="nav-link" href="#experience">Experience</a></li>
+            <li data-menuId='projects'><a class="nav-link" href="#projects">Projects</a></li>
+            <li data-menuId='contact'><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -49,24 +51,20 @@
         <h1>Hey There,</h1>
         <h1>I'm Rudra</h1>
       </div>
-      <p class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-      <div class="mail-to">
-        <a href="mailto:rudragowda53@gmail.com">rudragowda53@gmail.com</a>
-      </div>
+      <p class="quote">I'm currently focused on expanding my experience designing and developing high performing
+        websites.</p>
       <div class="experience">
-        <div class="item-1">3</div>
-        <div class="item-2">
-          <p class="subitem-1">Years</p>
-          <p class="subitem-2">Experience</p>
+        <div class="experience_wrapper">
+          <div class="experience_year">
+            <script>document.write((((new Date() - new Date(2018, 07, 16)) / 86400000) / 365).toFixed(1));</script>
+          </div>
+          <h3>Years Experience</h3>
         </div>
+        <h3>Software Engineer</h3>
+        <h3>Huawei Technologies</h3>
       </div>
-      <div class="work">
-        <img class="item-1 company-logo" src="./images/huawei-logo.png" alt="huawei-logo">
-        <div class="item-2">
-          <p class="subitem-1">Systems</p>
-          <p class="subitem-2">Engineer</p>
-        </div>
-      </div>
+      <div></div>
+      <div class="callout"><div class="button primary has-icon">Download Resume<i class="fa fa-download" aria-hidden="true"></i></div></div>
     </div>
     <img class="bg-avatar" src="./images/Avatar.png">
   </section>
@@ -95,165 +93,66 @@
       <div class="title">
         <h1>Skills</h1>
       </div>
-      <div class="skill-tab">
-        <ul class="skill-tab-header-wrapper">
-          <li data-tabid="frontend" class="skill-tab-head active">Frontend</li>
-          <li data-tabid="backend" class="skill-tab-head">Backend</li>
-          <li data-tabid="databases" class="skill-tab-head">Databases</li>
-          <li data-tabid="versioncontrol" class="skill-tab-head">Version Control</li>
-          <li data-tabid="packagemanager" class="skill-tab-head">Package Managers</li>
-        </ul>
-        <ul class="skill-tab-body-wrapper">
-          <li role="tab" data-tabid="frontend" class="skill-tab-body active">
-            <div class="skills_wrapper">
-              <div class="skill-card">
-                <div class="skill-before">
-                  <p>HTML 5</p>
-                  <img src="./images/skills/001-html-5.png" alt="HTML 5" class="skill-img">
-                  <div class="skill-btn-grp">
-                    <input type="radio" id="skill-html-1" name="skill-html-detail" checked class="skill-btn"
-                      data-tip="Level">
-                    <input type="radio" id="skill-html-2" name="skill-html-detail" class="skill-btn"
-                      data-tip="Certification">
-                  </div>
-                </div>
-                <div class="skill-after">
-                  <div class="skill-detail-card level active" data-detailbtnid="skill-html-1"
-                    data-detailname="skill-html-detail">
-                    <p>Intermediate</p>
-                    <progress id="prgrs-js" value="50" max="100"> 50% </progress>
-                  </div>
-                  <div class="skill-detail-card certf" data-detailbtnid="skill-html-2"
-                    data-detailname="skill-html-detail">
-                    <ol>
-                      <li><a href="#">FreeCodeCamp Certificate</a></li>
-                      <li><a href="#">FreeCodeCamp Certificate</a></li>
-                    </ol>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-card">
-                <div class="skill-before">
-                  <p>CSS 3</p>
-                  <img src="./images/skills/002-css-3.png" alt="CSS 3" class="skill-img">
-                  <div class="skill-btn-grp">
-                    <input type="radio" id="skill-css-1" name="skill-css-detail" checked class="skill-btn"
-                      data-tip="Level">
-                    <input type="radio" id="skill-css-2" name="skill-css-detail" class="skill-btn"
-                      data-tip="Certification">
-                  </div>
-                </div>
-                <div class="skill-after">
-                  <div class="skill-detail-card level active" data-detailbtnid="skill-css-1"
-                    data-detailname="skill-css-detail">
-                    <p>Intermediate</p>
-                    <progress id="prgrs-js" value="50" max="100"> 50% </progress>
-                  </div>
-                  <div class="skill-detail-card certf" data-detailbtnid="skill-css-2"
-                    data-detailname="skill-css-detail">
-                  </div>
-                </div>
-              </div>
-              <div class="skill-card">
-                <div class="skill-before">
-                  <p>JavaScript</p>
-                  <img src="./images/skills/003-js.png" alt="JavaScript" class="skill-img">
-                  <div class="skill-btn-grp">
-                    <input type="radio" id="skill-js-1" name="skill-js-detail" checked class="skill-btn"
-                      data-tip="Level">
-                    <input type="radio" id="skill-js-2" name="skill-js-detail" class="skill-btn"
-                      data-tip="Certification">
-                  </div>
-                </div>
-                <div class="skill-after">
-                  <div class="skill-detail-card level active" data-detailbtnid="skill-js-1"
-                    data-detailname="skill-js-detail">
-                    <p>Intermediate</p>
-                    <progress id="prgrs-js" value="50" max="100"> 50% </progress>
-                  </div>
-                  <div class="skill-detail-card certf" data-detailbtnid="skill-js-2" data-detailname="skill-js-detail">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li role="tab" data-tabid="backend" class="skill-tab-body">
-            <div class="skills_wrapper">
-              <div class="skill-card">
-                <div class="skill-before">
-                  <p>Node JS</p>
-                  <img src="./images/skills/004-node-js.png" alt="Node JS" class="skill-img">
-                  <div class="skill-btn-grp">
-                    <input type="radio" id="skill-node-1" name="skill-node-detail" checked class="skill-btn"
-                      data-tip="Level">
-                    <input type="radio" id="skill-node-2" name="skill-node-detail" class="skill-btn"
-                      data-tip="Certification">
-                  </div>
-                </div>
-                <div class="skill-after">
-                  <div class="skill-detail-card level active" data-detailbtnid="skill-node-1"
-                    data-detailname="skill-node-detail">
-                    <p>Intermediate</p>
-                    <progress id="prgrs-js" value="50" max="100"> 50% </progress>
-                  </div>
-                  <div class="skill-detail-card certf" data-detailbtnid="skill-node-2"
-                    data-detailname="skill-node-detail">
-                  </div>
-                </div>
-              </div>
-              <div class="skill-card">
-                <div class="skill-before">
-                  <p>Java</p>
-                  <img src="./images/skills/005-java.png" alt="Java" class="skill-img">
-                  <div class="skill-btn-grp">
-                    <input type="radio" id="skill-java-1" name="skill-java-detail" checked class="skill-btn"
-                      data-tip="Level">
-                    <input type="radio" id="skill-java-2" name="skill-java-detail" class="skill-btn"
-                      data-tip="Certification">
-                  </div>
-                </div>
-                <div class="skill-after">
-                  <div class="skill-detail-card level active" data-detailbtnid="skill-java-1"
-                    data-detailname="skill-java-detail">
-                    <p>Intermediate</p>
-                    <progress id="prgrs-js" value="50" max="100"> 50% </progress>
-                  </div>
-                  <div class="skill-detail-card certf" data-detailbtnid="skill-java-2"
-                    data-detailname="skill-java-detail">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li role="tab" data-tabid="databases" class="skill-tab-body">
-            <div class="skills_wrapper">
-              <div class="skill-card">
-                <div class="skill-before">
-                  <p>MySQL</p>
-                  <img src="./images/skills/006-mysql.png" alt="MySQL" class="skill-img">
-                  <div class="skill-btn-grp">
-                    <input type="radio" id="skill-sql-1" name="skill-sql-detail" checked class="skill-btn"
-                      data-tip="Level">
-                    <input type="radio" id="skill-sql-2" name="skill-sql-detail" class="skill-btn"
-                      data-tip="Certification">
-                  </div>
-                </div>
-                <div class="skill-after">
-                  <div class="skill-detail-card level active" data-detailbtnid="skill-sql-1"
-                    data-detailname="skill-sql-detail">
-                    <p>Intermediate</p>
-                    <progress id="prgrs-js" value="50" max="100"> 50% </progress>
-                  </div>
-                  <div class="skill-detail-card certf" data-detailbtnid="skill-sql-2"
-                    data-detailname="skill-sql-detail">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li role="tab" data-tabid="versioncontrol" class="skill-tab-body"></li>
-          <li role="tab" data-tabid="packagemanager" class="skill-tab-body"></li>
-        </ul>
+      <div class="skills_wrapper">
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" aria-label="HTML"
+            alt="HTML" class="skill-img"
+            srcset="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+          <h4>HTML</h4>
+        </div>
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" aria-label="CSS" alt="CSS"
+            class="skill-img" srcset="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg">
+          <h4>CSS</h4>
+        </div>
+        <div class="skill-card">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg"
+            aria-label="Sass" alt="Sass" class="skill-img"
+            srcset="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg">
+          <h4>Sass</h4>
+        </div>
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            aria-label="Javascript" alt="Javascript" class="skill-img"
+            srcset="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+          <h4>Javascript</h4>
+        </div>
+        <div class="skill-card">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
+            aria-label="NodeJS" alt="NodeJS" class="skill-img"
+            srcset="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg">
+          <h4>NodeJS</h4>
+        </div>
+        <div class="skill-card">
+          <img
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg"
+            aria-label="NodeJS" alt="NodeJS" class="skill-img"
+            srcset="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg">
+          <h4>Express</h4>
+        </div>
+        <div class="skill-card">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/v2.15.1/icons/java/java-original.svg"
+            aria-label="Java" alt="Java" class="skill-img"
+            srcset="https://raw.githubusercontent.com/devicons/devicon/v2.15.1/icons/java/java-original.svg">
+          <h4>Java</h4>
+        </div>
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg" aria-label="MySQL"
+            alt="MySQL" class="skill-img"
+            srcset="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg">
+          <h4>MySQL</h4>
+        </div>
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg" aria-label="MongoDB"
+            alt="MongoDB" class="skill-img"
+            srcset="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg">
+          <h4>MongoDB</h4>
+        </div>
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain.svg" aria-label="Git" alt="Git"
+            class="skill-img" srcset="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain.svg">
+          <h4>Git</h4>
+        </div>
       </div>
     </div>
   </section>
@@ -267,19 +166,19 @@
         <div class="grid_wrapper">
           <div class="grid-cell workplace">
             <h2 class="company-name">Huawei Technologies India Pvt Ltd.</h2>
-            <p class="work-duration">Aug 2018 - Jan 2021</p>
+            <p class="work-duration">Aug 2018 - Jan 2020</p>
           </div>
           <div class="grid-cell experience-descr">
-            <h2 class="work-role">Software Engineer</h2>
+            <h2 class="work-role">Graduate Engineer Trainee</h2>
             <p class="work-description">Design and develop responsive web applications on IHUB, GDE Platform using
               various technologies. Build and deploy web apps.</p>
           </div>
           <div class="grid-cell workplace">
             <h2 class="company-name">Huawei Technologies India Pvt Ltd.</h2>
-            <p class="work-duration">Jan 2021 - Present</p>
+            <p class="work-duration">Jan 2020 - Present</p>
           </div>
           <div class="grid-cell experience-descr">
-            <h2 class="work-role">Systems Engineer</h2>
+            <h2 class="work-role">Software Engineer</h2>
             <p class="work-description">Analyze and design systems with high quality based on requirements provided by
               customer. Integrate Huawei's FMS with third party systems. Develop and perform code review.</p>
           </div>
@@ -297,7 +196,7 @@
       <div class="grid-contain">
         <div class="grid-scrollable">
           <div class="grid-track">
-            <div class="odd-card project-tile">
+            <div class="project-tile">
               <h1>URL Shortener</h1>
               <p>A Node.js,Express,MongoDB project deployed on Replit.com</p>
               <p class="tag backend-tag">Back End API Development</p>
@@ -307,7 +206,7 @@
                 </a>
               </div>
             </div>
-            <div class="even-card project-tile">
+            <div class="project-tile">
               <h1>Product Landing Page</h1>
               <p>Sneakers Product Landing Page</p>
               <p class="tag frontend-tag">Front End Development</p>
@@ -317,7 +216,7 @@
                 </a>
               </div>
             </div>
-            <div class="odd-card project-tile">
+            <div class="project-tile">
               <h1>Technical Documentation</h1>
               <p>JavaScript Technical Documentation</p>
               <p class="tag frontend-tag">Front End Development</p>
@@ -327,7 +226,7 @@
                 </a>
               </div>
             </div>
-            <div class="even-card project-tile">
+            <div class="project-tile">
               <h1>COVID-19 Survey Form</h1>
               <p>Survey to gather health and medical history of user</p>
               <p class="tag frontend-tag">Front End Development</p>
@@ -337,7 +236,7 @@
                 </a>
               </div>
             </div>
-            <div class="odd-card project-tile">
+            <div class="project-tile">
               <h1>Tribute Page</h1>
               <p>A tribute to Power Star Puneeth Rajkumar</p>
               <p class="tag frontend-tag">Front End Development</p>
@@ -378,6 +277,7 @@
           </div>
         </div>
         <div class="footer_social">
+          <a id="profile-link" href="mailto:rudragowda53@gmail.com"><i class="fa fa-envelope-o"></i></a>
           <a id="profile-link" target="_blank" href="https://www.linkedin.com/in/rudragowda-m-patil-5381b87a/"><i
               class="fa fa-linkedin"></i></a>
           <a id="profile-link" target="_blank" href="https://www.instagram.com/im_rudrag/"><i
@@ -388,11 +288,9 @@
       </div>
       <div class="footer_bottom">
         <div class="footer-left">
-          <p class="footer-logo">Rudra Gowda</p>
+          <img class="logo" src="./images/logo-dark.png" width="30" height="auto" />
           <p>Made with <span style="color:red">♥</span> by RudraGowda</p>
         </div>
-        <p>Inspired by design by <a class="dribble" target="_blank" href="https://dribbble.com/sajon">Sajon@dribbble</a>
-        </p>
       </div>
     </div>
   </footer>

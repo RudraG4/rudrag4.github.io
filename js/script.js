@@ -1,7 +1,7 @@
 const navMenu = document.getElementById("nav-menu");
 const hamMenu = document.getElementById("ham-menu");
 const hamBurger = document.getElementById("hamburger");
-const splash = document.querySelector('.welcome-splash');
+const themeBtn = document.getElementById("nav-theme");
 const skillBtns = document.querySelectorAll('.skill-btn-grp input[type=radio]');
 const skillTabs = document.querySelectorAll('ul.skill-tab-header-wrapper li.skill-tab-head');
 
@@ -47,6 +47,7 @@ function navMenuHandler(e) {
 }
 
 function hamBurgerHandler(e) {
+  e.currentTarget.classList.toggle('active');
   document.getElementById("ham-menu").classList.toggle("is-show");
   e.stopPropagation();
 }
@@ -72,7 +73,7 @@ function animateOnScroll(event) {
         }
       }
     }
-  }, 500);
+  }, 0);
 }
 
 function skillBtnHandler(event) {
@@ -81,14 +82,33 @@ function skillBtnHandler(event) {
   event.stopPropagation();
 }
 
-document.addEventListener('DOMContentLoaded', (e) => {
-  setTimeout(() => {
-    splash.classList.add('clear');
-  }, 4000);
-});
+function setTheme(theme) {
+  let navLogo = document.querySelectorAll('.logo');
+  let navThemeBtn = document.getElementById("nav-theme");
+  let rootNodeDataset = document.getElementsByTagName('html')[0].dataset;
+  if (theme == 'dark') {
+    navThemeBtn.src = './images/moon.png';
+    rootNodeDataset.theme = 'dark';
+    Array.from(navLogo).forEach(el => el.src = './images/logo-light.png');
+  } else {
+    navThemeBtn.src = './images/sun.png';
+    rootNodeDataset.theme = 'light';
+    Array.from(navLogo).forEach(el => el.src = './images/logo-dark.png');
+  }
+  localStorage.setItem(location.hostname + "_prefered_theme", rootNodeDataset.theme);
+}
+
+function themeHandler() {
+  let rootNodeDataset = document.getElementsByTagName('html')[0].dataset;
+  setTheme(rootNodeDataset.theme == "dark" ? "light" : "dark");
+}
+
+setTheme(localStorage.getItem(location.hostname + "_prefered_theme"));
+
 navMenu.addEventListener("click", navMenuHandler);
 hamBurger.addEventListener("click", hamBurgerHandler);
 hamMenu.addEventListener("click", navMenuHandler);
+themeBtn.addEventListener('click', themeHandler);
 window.addEventListener("scroll", animateOnScroll);
 skillBtns.forEach((btn) => btn.addEventListener('change', skillBtnHandler));
 skillTabs.forEach((tab) => tab.addEventListener('click', setActiveTab));
