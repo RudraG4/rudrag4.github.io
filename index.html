@@ -56,7 +56,14 @@
       <div class="experience">
         <div class="experience_wrapper">
           <div class="experience_year">
-            <script>document.write((((new Date() - new Date(2018, 07, 16)) / 86400000) / 365).toFixed(1));</script>
+            <script>
+              function calcDate(date1, date2) {
+                let days = Math.floor(Math.floor(date2.getTime() - date1.getTime()) / 86400000);
+                let years = parseInt(days / 365);
+                let months = Math.floor((days - (365 * years)) / 31);
+                return [years, months].join('.');
+              }
+              document.write(calcDate(new Date(2018, 07), new Date()));</script>
           </div>
           <h3>Years Experience</h3>
         </div>
@@ -290,7 +297,7 @@
         </div>
         <div class="footer_social">
           <a id="profile-link" href="mailto:rudragowda53@gmail.com"><i class="fa fa-envelope-o"></i></a>
-          <a id="profile-link" target="_blank" href="https://www.linkedin.com/in/rudragowda-m-patil-5381b87a/"><i
+          <a id="profile-link" target="_blank" href="https://www.linkedin.com/in/imrudrag"><i
               class="fa fa-linkedin"></i></a>
           <a id="profile-link" target="_blank" href="https://www.instagram.com/im_rudrag/"><i
               class="fa fa-instagram"></i></a>
