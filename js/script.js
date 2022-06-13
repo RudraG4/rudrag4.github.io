@@ -95,15 +95,12 @@ function setTheme(theme) {
     rootNodeDataset.theme = 'light';
     Array.from(navLogo).forEach(el => el.src = './images/logo-dark.png');
   }
-  localStorage.setItem(location.hostname + "_prefered_theme", rootNodeDataset.theme);
 }
 
 function themeHandler() {
   let rootNodeDataset = document.getElementsByTagName('html')[0].dataset;
   setTheme(rootNodeDataset.theme == "dark" ? "light" : "dark");
 }
-
-setTheme(localStorage.getItem(location.hostname + "_prefered_theme"));
 
 navMenu.addEventListener("click", navMenuHandler);
 hamBurger.addEventListener("click", hamBurgerHandler);

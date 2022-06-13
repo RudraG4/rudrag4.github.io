@@ -654,7 +654,7 @@ progress:hover::before {
     gap                  : 1rem;
     margin               : 0;
     padding              : 2rem 1rem;
-    z-index              : 5;
+    
 }
 
 .project-tile {
@@ -662,16 +662,16 @@ progress:hover::before {
     background    : white;
     color         : #0d2f3f;
     font-weight   : 600;
-    display       : block;
-    padding       : 1.25rem;
+    display: flex;
+    gap: 5px;border-radius: 5px;padding       : 1.25rem;
     overflow      : hidden;
-    flex-direction: column;
+    
     transition    : all .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     transform     : translateY(60px);
     opacity       : 0;
     border        : 1px solid var(--project-tile-color);
     box-shadow    : var(--project-tile-box-shadow) 5px 5px 0 0px;
-}
+height: auto;flex-direction: column;}
 
 .project-tile:hover {
     transform : scale(1.05);
@@ -680,7 +680,7 @@ progress:hover::before {
 }
 
 .project-tile p.tag {
-    margin-top: 4px;
+    /* margin-top: 4px; */
     font-size : 12px;
 }
 
@@ -700,9 +700,9 @@ p.frontend-tag::before {
 
 .picture_wrapper {
     position  : relative;
-    height    : 100%;
-    margin-top: 10px;
-}
+    height: -webkit-fill-available;
+    /* margin-top: 10px; */
+flex: 2;}
 
 .picture_wrapper a {
     display: block;
@@ -712,7 +712,7 @@ img.image_preview_shot {
     display   : block;
     width     : -webkit-fill-available;
     width     : -moz-available;
-    height    : auto;
+    height: auto;
     object-fit: contain;
 }
 
@@ -726,9 +726,9 @@ img.image_preview_shot {
 }
 
 .project-tile h1 {
-    font-size    : 1.5rem;
+    font-size: 1.25rem;
     font-weight  : bold;
-    margin-bottom: 10px;
+    
 }
 
 .project-tile p {
@@ -1069,29 +1069,13 @@ ul.navbar-nav {
     }
 }
 
-@media only screen and (max-width: 660px) {
-    img.skill-img {
-        width    : 3rem;
-        max-width: 100%;
-    }
-
-    .skill-card {
-        width : auto;
-        margin: .5rem;
-    }
-
-    .skill-detail-card {
-        align-items: flex-start;
-    }
-
-    .skill-btn-grp {
-        display   : inline-flex;
-        column-gap: 5px;
-    }
-
-    .skill-btn-grp input[type="radio"]::after {
-        bottom: -25px;
-        left  : 5px;
+@media only screen and (max-width: 800px) {
+    #home .home_template {
+        grid-template-areas  : "header""main""main""footer";
+        grid-template-columns: 1fr;
+        grid-template-rows   : auto;
+        gap                  : 10px;
+        height: auto;
     }
 }
 
