@@ -80,29 +80,29 @@ footer {
     background-color: var(--base-color);
 }
 
-#nav-menu {
+#nav-list {
     display        : flex;
-    justify-content: center;
-    max-width      : 800px;
-    gap            : 5px;
+    justify-content: flex-end;
     flex           : 1;
 }
 
-#nav-menu li {
+#nav-list li {
     display        : flex;
     align-items    : center;
-    flex           : 1;
+    height         : 50px;
     align-content  : center;
     justify-content: center;
-    border-bottom  : 3px solid transparent;
+    position       : relative;
+    border-bottom  : 0px solid var(--secondary-color);
 }
 
-#nav-menu li a {
+#nav-list li a {
     display       : block;
     padding       : 5px 20px;
     font-weight   : inherit;
     color         : inherit;
     text-transform: uppercase;
+    z-index       : 2;
 }
 
 nav li.active-window,
@@ -111,10 +111,24 @@ nav li:hover {
     font-weight: 600;
 }
 
-#nav-menu li.active-window,
-#nav-menu li:hover {
-    padding      : 10px 0px;
+#nav-list li.nav-item::before {
+    content      : "";
+    position     : absolute;
+    width        : 0%;
+    height       : 100%;
+    top          : 0;
+    left         : 100%;
     border-bottom: 3px solid var(--secondary-color);
+    transition   : 0.2s all linear;
+}
+
+#nav-list li.nav-item:hover::before {
+    left : 0;
+    width: 100%;
+}
+
+#nav-list li.nav-item:hover~li::before {
+    left: 0;
 }
 
 #nav-theme {
@@ -654,24 +668,28 @@ progress:hover::before {
     gap                  : 1rem;
     margin               : 0;
     padding              : 2rem 1rem;
-    
+
 }
 
 .project-tile {
-    box-sizing    : border-box;
-    background    : white;
-    color         : #0d2f3f;
-    font-weight   : 600;
-    display: flex;
-    gap: 5px;border-radius: 5px;padding       : 1.25rem;
-    overflow      : hidden;
-    
+    box-sizing   : border-box;
+    background   : white;
+    color        : #0d2f3f;
+    font-weight  : 600;
+    display      : flex;
+    gap          : 5px;
+    border-radius: 5px;
+    padding      : 1.25rem;
+    overflow     : hidden;
+
     transition    : all .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     transform     : translateY(60px);
     opacity       : 0;
     border        : 1px solid var(--project-tile-color);
     box-shadow    : var(--project-tile-box-shadow) 5px 5px 0 0px;
-height: auto;flex-direction: column;}
+    height        : auto;
+    flex-direction: column;
+}
 
 .project-tile:hover {
     transform : scale(1.05);
@@ -681,7 +699,7 @@ height: auto;flex-direction: column;}
 
 .project-tile p.tag {
     /* margin-top: 4px; */
-    font-size : 12px;
+    font-size: 12px;
 }
 
 p.backend-tag::before {
@@ -699,10 +717,11 @@ p.frontend-tag::before {
 }
 
 .picture_wrapper {
-    position  : relative;
-    height: -webkit-fill-available;
+    position     : relative;
+    height       : -webkit-fill-available;
     /* margin-top: 10px; */
-flex: 2;}
+    flex         : 2;
+}
 
 .picture_wrapper a {
     display: block;
@@ -712,7 +731,7 @@ img.image_preview_shot {
     display   : block;
     width     : -webkit-fill-available;
     width     : -moz-available;
-    height: auto;
+    height    : auto;
     object-fit: contain;
 }
 
@@ -726,9 +745,9 @@ img.image_preview_shot {
 }
 
 .project-tile h1 {
-    font-size: 1.25rem;
-    font-weight  : bold;
-    
+    font-size  : 1.25rem;
+    font-weight: bold;
+
 }
 
 .project-tile p {
@@ -901,7 +920,7 @@ ul.navbar-nav {
         display: flex;
     }
 
-    #nav-menu,
+    #nav-list,
     #nav-theme1 {
         display: none;
     }
@@ -933,7 +952,7 @@ ul.navbar-nav {
         grid-template-areas  : "header""header""main""footer";
         gap                  : 10px;
         grid-template-columns: repeat(2, 1fr);
-        height: auto;
+        height               : auto;
     }
 
     #home p.quote {
@@ -1075,7 +1094,7 @@ ul.navbar-nav {
         grid-template-columns: 1fr;
         grid-template-rows   : auto;
         gap                  : 10px;
-        height: auto;
+        height               : auto;
     }
 }
 
