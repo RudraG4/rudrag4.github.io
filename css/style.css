@@ -46,6 +46,7 @@ body {
     color           : var(--primary-font-color);
     font-size       : 1rem;
     font-family     : Montserrat, Open Sans;
+    transition      : all .5s ease-in-out;
 }
 
 ul {
@@ -80,6 +81,11 @@ footer {
     background-color: var(--base-color);
 }
 
+#navbar>img.logo {
+    cursor     : pointer;
+    user-select: none;
+}
+
 #nav-list {
     display        : flex;
     justify-content: flex-end;
@@ -93,6 +99,7 @@ footer {
     align-content  : center;
     justify-content: center;
     position       : relative;
+    cursor         : pointer;
     border-bottom  : 0px solid var(--secondary-color);
 }
 
@@ -229,7 +236,9 @@ div.hamburger-menu {
     width     : 100%;
     height    : 2px;
     background: var(--primary-font-color);
-    transition: background-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s, width 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s, transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) .2s;
+    transition: background-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
+        width 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
+        transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) .2s;
 }
 
 #hamburger.bars.active>div:first-of-type {
@@ -258,6 +267,7 @@ div.hamburger-menu {
 
 section {
     min-height: 100vh;
+    height    : 100vh;
     height    : 100%;
     padding   : 0px 4rem;
     position  : relative;
@@ -982,12 +992,6 @@ ul.navbar-nav {
 
     .experience .experience_year {
         font-size: 1.7em;
-    }
-
-    #home img.company-logo {
-        width        : 50px;
-        height       : 50px;
-        margin-bottom: 14px;
     }
 
     #experience .work_exp_wrapper {

@@ -1,4 +1,5 @@
 const navMenu = document.getElementById("nav-list");
+const navLogo = document.querySelector("#navbar > img.logo");
 const hamMenu = document.getElementById("ham-menu");
 const hamBurger = document.getElementById("hamburger");
 const themeBtn = document.getElementById("nav-theme");
@@ -26,19 +27,11 @@ function setActiveWindow(menuId) {
   document.querySelectorAll(selector).forEach(node => node.classList.toggle("active-window"));
 }
 
-function setActiveTab(e) {
-  if (e.target && e.target.matches('li.skill-tab-head')) {
-    document.querySelectorAll("ul.skill-tab-header-wrapper li.active").forEach(node => node.classList.remove("active"));
-    document.querySelectorAll("ul.skill-tab-body-wrapper li.skill-tab-body.active").forEach(node => node.classList.remove("active"));
-    var selector = 'ul.skill-tab-body-wrapper li[data-tabid="' + e.target.dataset.tabid + '"]';
-    document.querySelectorAll(selector).forEach(node => node.classList.toggle("active"));
-    e.target.classList.toggle('active');
-  }
-}
-
 function navMenuHandler(e) {
   if (e.target && e.target.matches("a.nav-link")) {
     setActiveWindow(e.target.parentNode.dataset.menuid);
+    const view = document.getElementById(e.target.parentNode.dataset.menuid);
+    view && view.scrollIntoView(true);
     hamBurger.click();
   }
   e.stopPropagation();
@@ -99,3 +92,4 @@ hamBurger.addEventListener("click", hamBurgerHandler);
 hamMenu.addEventListener("click", navMenuHandler);
 themeBtn.addEventListener('click', themeHandler);
 window.addEventListener("scroll", animateOnScroll);
+navLogo.addEventListener("click", () => { location.reload() });
