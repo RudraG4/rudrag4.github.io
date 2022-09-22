@@ -32,7 +32,7 @@ export default function Experience() {
 
   return (
     <div className="experience-container">
-      <h1 className="experience_title fw-bold">Work Experience</h1>
+      <h1 className="experience_title fw-bold">Experience</h1>
       <div className="timeline">
         {experience_info.map((_data, _id) => {
           return <ExperienceCard key={_id} {..._data} />;
