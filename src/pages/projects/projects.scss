@@ -29,6 +29,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 100%;
+    width: 100%;
     display: none;
     margin-bottom: 1rem;
     margin-left: 0;
@@ -58,6 +59,7 @@
     }
     
     .card_image {
+      align-self: flex-end;
       border-radius: 8px;
       padding-left: calc(var(--bs-gutter-x) * .6);
       padding-right: calc(var(--bs-gutter-x) * .6);
