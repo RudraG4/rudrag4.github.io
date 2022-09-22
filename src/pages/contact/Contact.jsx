@@ -86,6 +86,7 @@ export default function Contact() {
                   type="text"
                   className="form-control"
                   name="name"
+                  placeholder="Your name"
                   required
                   onChange={onValueChange}
                   onFocus={onFocusChange}
@@ -108,6 +109,7 @@ export default function Contact() {
                   type="email"
                   className="form-control"
                   name="email"
+                  placeholder="Your email to connect"
                   required
                   onChange={onValueChange}
                   onFocus={onFocusChange}
@@ -131,6 +133,7 @@ export default function Contact() {
                 <textarea
                   className="form-control"
                   name="message"
+                  placeholder="Leave a message..."
                   autoCorrect="autoCorrect"
                   onChange={onValueChange}
                   onFocus={onFocusChange}
