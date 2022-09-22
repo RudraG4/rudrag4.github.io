@@ -1,0 +1,33 @@
+.main-container {
+  position: relative;
+  background-color: #f8f7f1;
+  color: #0d2322;
+  padding-top: 80px;
+}
+
+.outlet-container {
+  position: relative;
+  min-height: calc(100vh - 84px);
+  height: 100%;
+  display: block;
+
+  > div {
+    min-height: calc(100vh - 84px);
+  }
+}
+
+.contact-links-container {
+  position: fixed;
+  left: 2rem;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  margin-right: 25px;
+  display: none;
+}
+
+@media (min-width: 1260px) {
+  .contact-links-container {
+    display: block;
+  }
+}

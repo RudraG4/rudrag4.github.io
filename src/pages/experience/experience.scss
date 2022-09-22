@@ -1,0 +1,136 @@
+.experience_title {
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  padding-bottom: 15px;
+  display: grid;
+
+  .row {
+    grid-template-columns: 40% auto 1fr;
+    margin-left: 0;
+    margin-right: 0;
+
+    &:nth-child(even) .timeline-seperator .dot{
+      background: #ffb200;
+    } 
+
+    &:nth-child(odd) .timeline-seperator .dot{
+      background: #D7720C;
+    } 
+  }
+  
+  .timeline-card {
+    display: grid;
+
+    .timeline-left {
+      padding-bottom: 20px;
+    }
+
+    .timeline-content {
+      position: relative;
+    }
+    
+    .timeline-right {
+      padding-bottom: 50px;
+    }
+
+    .timeline-left-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      margin-top: 0.25rem;
+    }
+
+    .timeline-right-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+.circle-load {
+  border: 1px dashed transparent;
+  animation: circle-load 750ms 0s linear 1 forwards;
+  transform: rotate(45deg);
+}
+
+.timeline-seperator {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+
+  .bullet {
+    position: relative;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f7f1;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 50px;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+
+    .dot {
+      background: #D7720C;
+      width: 100%;
+      height: 100%;
+      border-radius: 50px;
+      line-height: 16px;
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+
+  .line {
+      --grow-duration: 1s;
+      --grow-delay: 750ms;
+      height: 0;
+      width: 1px;
+      background-image: linear-gradient(#2e8d88 50%, rgba(255, 255, 255, 0) 0%);
+      background-size: 1px 10px;
+      background-repeat: repeat-y;
+      animation: grow var(--grow-duration) var(--grow-delay) linear 1 forwards;
+  }
+}
+
+@media (max-width: 720px) {
+  .timeline {
+    .row {
+      grid-template-columns: 40px 1fr;
+    }
+    .timeline-card {
+      .timeline-left {
+        grid-row: 2/3;
+        grid-column: 2/3;
+        padding-bottom: 50px;
+      }
+      
+      .timeline-seperator {
+        grid-row: 1/3;
+        grid-column: 1/2;
+        padding: 0;
+      }
+      
+      .timeline-right {
+        grid-row: 1/2;
+        grid-column: 2/3;
+        padding-bottom: 0;
+      }
+    }
+    
+  }
+
+  .timeline-left::before {
+    display: block;
+    animation: grow var(--grow-duration) calc(var(--grow-duration) + var(--grow-delay)) linear 1 forwards;
+  }
+}

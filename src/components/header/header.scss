@@ -1,0 +1,100 @@
+.navbar {
+  position: fixed;
+  top: 0px;
+  left: 6px;
+  right: 6px;
+  background-color: #f8f7f1;
+  border-bottom: 1px solid #c6bea54a;
+  min-height: 70px;
+  z-index: 1024;
+
+  > .container-xl {
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    .resume-download {
+      display: none;
+    }
+  }
+
+  .navbar-nav {
+    justify-content: flex-end;
+    align-items: center;
+    row-gap: 1rem;
+  }
+
+  .navbar-toggler {
+    background-color: white;
+    border: 0;
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: 3px 5px 9px -4px rgb(66 66 66 / 39%);
+
+    .navbar-toggler-icon {
+      background-size: 75%;
+      border-radius: 50px;
+      transition: background-image 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2813, 35, 34, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22 M4 15h22 M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    &[aria-expanded="true"] > .navbar-toggler-icon {
+      --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2813, 35, 34, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M5 7h12 M5 15h22 M15 23h12'/%3e%3c/svg%3e");
+    }
+
+    &:focus {
+      box-shadow: 3px 5px 9px -4px rgb(66 66 66 / 39%);
+      outline: 0;
+      border: 0;
+    }
+  }
+}
+
+.nav-item {
+  text-align: center;
+  line-height: 14px;
+  padding: 2px;
+
+  .nav-link {
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 1px !important;
+    padding-right: 1px !important;
+    transition: none;
+    font-weight: 500;
+
+    > div {
+      display: block;
+      margin: 1px 1px;
+      padding: 0.2rem 1rem;
+    }
+
+    &.active {
+      color: #286f6c !important;
+      font-weight: 700;
+    }
+
+    &:hover {
+      color: #286f6c !important;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  
+  .navbar-expand-lg  {
+    .navbar-nav {
+      flex-direction: row;
+      width: 100%;
+    }    
+  }
+
+  .navbar {
+    border-bottom: 1px solid transparent;
+
+    > .container-xl {
+        .resume-download {
+          display: block;
+        }
+      }
+  }
+}

@@ -1,0 +1,77 @@
+
+.skill-card {
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    display: flex;
+    align-items: center;
+    width: 12rem;
+    padding: calc(0.5rem + 0.3vw) 0.5rem;
+    border-radius: 5px;
+    margin: calc(0.5rem + 0.3vw);
+    cursor: pointer;
+    opacity: 0;
+  
+  .skill-img {
+    width: calc(2rem + 0.3vw);
+    max-width: 100%;
+    height   : auto;
+  }
+
+  .skill-label {
+    color      : #0d2f3f;
+    margin-left: 1rem;
+    font-size: 1rem;
+    flex: 1;
+  }
+}
+
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(40px, 0px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-40px, 0px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0px, -40px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translate3d(0px, 40px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+@media (max-width:400px) {
+  .skill-card {
+    width: calc(50% - calc(0.5rem + 0.3vw) * 2);
+  }
+}
