@@ -31,7 +31,7 @@ export default function Experience() {
   const { experience_info } = useContext(DataContext);
 
   return (
-    <div className="experience-container">
+    <div className="container-fluid experience-container">
       <h1 className="experience_title fw-bold">Experience</h1>
       <div className="timeline">
         {experience_info.map((_data, _id) => {

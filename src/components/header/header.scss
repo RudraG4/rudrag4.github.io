@@ -3,10 +3,11 @@
   top: 0px;
   left: 6px;
   right: 6px;
-  background-color: #f8f7f1;
+  background: #f2f6f7;
   border-bottom: 1px solid #c6bea54a;
   min-height: 70px;
   z-index: 1024;
+  box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px;
 
   > .container-xl {
     padding-top: 8px;
@@ -20,7 +21,11 @@
   .navbar-nav {
     justify-content: flex-end;
     align-items: center;
-    row-gap: 1rem;
+    
+    .nav-item {
+      display: block;
+      padding: 10px 15px;
+    }
   }
 
   .navbar-toggler {
@@ -47,6 +52,46 @@
       border: 0;
     }
   }
+  
+  .mb-nav-arrow {
+    position: fixed;
+    right: calc(1.2rem + 3vw);
+    top: 50%;
+    z-index: 1000;
+    font-size: calc(1.3rem + .6vw)!important;
+    color: black;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    
+    .fa-circle-arrow-right {
+      filter: drop-shadow(0px 5px 4px rgb(0 0 0 / 0.3));
+    } 
+    
+    &:hover {
+      transform: scale(1.2);
+      
+      .fa-circle-arrow-right{
+        filter: none;
+      }      
+      
+      &::after {
+        opacity: 1;
+      }
+    }
+    
+    &::after {     
+      content: attr(data-route);
+      transition: all 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      position: absolute;
+      right: 0;
+      display: block;
+      font-size: 1rem;
+      text-decoration: none;
+      text-align: end;
+      line-height: 1;
+      opacity: 0;
+    }
+  }
 }
 
 .nav-item {
@@ -69,12 +114,12 @@
     }
 
     &.active {
-      color: #286f6c !important;
+      color: #d7720c !important;
       font-weight: 700;
     }
 
     &:hover {
-      color: #286f6c !important;
+      color: #d7720c !important;
     }
   }
 }
@@ -90,6 +135,7 @@
 
   .navbar {
     border-bottom: 1px solid transparent;
+    box-shadow: none; 
 
     > .container-xl {
         .resume-download {

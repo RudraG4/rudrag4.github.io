@@ -1,21 +1,11 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../context/BuildContext";
 import "./home.scss";
 
 export default function Home() {
-  const [experience] = useState(calculateExp(new Date(2018, 7), new Date()));
   const navigate = useNavigate();
   const { basic_info } = useContext(DataContext);
-
-  function calculateExp(date1, date2) {
-    let days = Math.floor(
-      Math.floor(date2.getTime() - date1.getTime()) / 86400000
-    );
-    let years = parseInt(days / 365, 10);
-    let months = Math.floor((days - 365 * years) / 31);
-    return [years, months].join(".");
-  }
 
   useEffect(() => {
     document.title = `${basic_info.name} - ${basic_info.current_designation}`;
@@ -51,7 +41,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="content-project" aria-label="Explore All Projects">
+        <div className="content-cta" aria-label="Explore All Projects">
           <button
             className="btn btn-primary pt-2 pb-2 fs-auto"
             onClick={() => navigate("/projects")}

@@ -7,7 +7,7 @@ export default function Skills() {
   const { skills_info } = useContext(DataContext);
 
   return (
-    <div className="container-fluid skills-container">
+    <div id="skills" className="container-fluid skills-container">
       <div className="skills_title">
         <h1 className="fw-bold">Skills</h1>
         <p>

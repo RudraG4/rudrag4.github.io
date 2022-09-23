@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -12,7 +12,7 @@ export default function Projects() {
   const [activeTabId, setActiveTabId] = useState(0);
 
   return (
-    <div className="projects-container">
+    <div className="container-fluid projects-container">
       <h1 className="fw-bold">Projects</h1>
       <div className="projects_featured mb-5">
         <div className="gray_bold_text">FEATURED PROJECT</div>
@@ -130,11 +130,11 @@ export default function Projects() {
       </div>
       <div className="projects_footer">
         <div className="text-center">
-          <h2 className="fw-bold mb-4">You can check out my other projects</h2>
+          <h2 className="fw-bold mb-4">Check out my other projects</h2>
           <button
             className="btn btn-primary pt-2 pb-2 fs-auto"
             onClick={() => {
-              window.open(basic_info.github, "_blank");
+              window.open(basic_info.links.github, "_blank");
             }}
           >
             Explore All Projects

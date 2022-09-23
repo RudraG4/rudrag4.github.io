@@ -1,4 +1,4 @@
-import { HashRouter, BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { RouteContext } from "../context/BuildContext";
 import BaseLayout from "../layout/BaseLayout";
@@ -11,9 +11,7 @@ export default function AppRouter() {
       <Routes>
         <Route path="/" element={<BaseLayout />}>
           {routes.map((_route, _id) => {
-            return (
-              <Route key={_id} path={_route.path} element={_route.element} />
-            );
+            return <Route key={_id} {..._route} />;
           })}
           <Route path="*" element={<Navigate to="/" />} />
         </Route>

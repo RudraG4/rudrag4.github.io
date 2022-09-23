@@ -5,28 +5,29 @@ const routes = [
   {
     path: "/",
     label: "Home",
-    element: <Home />
+    index: true,
+    element: <Home />,
   },
   {
     path: "/skills",
     label: "Skills",
-    element: <Skills />
+    element: <Skills />,
   },
   {
     path: "/experience",
     label: "Experience",
-    element: <Experience />
+    element: <Experience />,
   },
   {
     path: "/projects",
     label: "Projects",
-    element: <Projects />
+    element: <Projects />,
   },
   {
     path: "/contact",
     label: "Contact",
-    element: <Contact />
-  }
+    element: <Contact />,
+  },
 ];
 
 export default function RouteProvider({ children }) {

@@ -1,34 +1,45 @@
+import { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   faLocationDot,
   faPaperPlane,
   faCircleNotch,
-  faCircleExclamation
+  faCircleExclamation,
+  faCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import "./contact.scss";
 
 export default function Contact() {
   const _initFields = {
-    name: "",
-    email: "",
-    message: ""
+    fromName: "",
+    replyTo: "",
+    message: "",
   };
   const [formData, setFormData] = useState(_initFields);
   const [error, setError] = useState(_initFields);
-  const [isSending, setIsSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState();
+
+  const sendEmail = (templateParams) => {
+    return emailjs.send(
+      process.env.REACT_APP_SERVICE_ID,
+      process.env.REACT_APP_TEMPLATE_ID,
+      templateParams,
+      process.env.REACT_APP_PUBLIC_KEY
+    );
+  };
 
   const validate = () => {
     let isValid = true;
-    if (!formData.name) {
+    if (!formData.fromName) {
       setError((_o) => {
-        return { ..._o, name: "Please provide a name" };
+        return { ..._o, fromName: "Please provide a name" };
       });
       isValid = false;
     }
-    if (!formData.email) {
+    if (!formData.replyTo) {
       setError((_o) => {
-        return { ..._o, email: "Please provide a valid email" };
+        return { ..._o, replyTo: "Please provide a valid email" };
       });
       isValid = false;
     }
@@ -59,14 +70,36 @@ export default function Contact() {
   const onSubmit = (event) => {
     event.preventDefault();
     if (validate()) {
-      setIsSending(true);
-      console.log(JSON.stringify(formData));
-      setTimeout(() => setIsSending(false), 2000);
+      if (!sendStatus) {
+        setSendStatus("SENDING");
+        try {
+          sendEmail(formData).then(
+            (response) => {
+              console.log("SUCCESS!", response.status, response.text);
+              setSendStatus("SUCCESS");
+            },
+            (error) => {
+              console.log(error.text);
+              setSendStatus("FAILED");
+            }
+          );
+        } catch (e) {
+          setSendStatus("FAILED");
+        }
+      }
     }
   };
 
+  useEffect(() => {
+    if (["SUCCESS", "FAILED"].includes(sendStatus)) {
+      setTimeout(() => {
+        setSendStatus();
+      }, 2000);
+    }
+  }, [sendStatus]);
+
   return (
-    <div className="contact row flex-column">
+    <div className="container-fluid contact-container row flex-column">
       <div className="contact-main row">
         <div className="col contact-main-left">
           <p className="fs-1">Let's create something better together.</p>
@@ -78,14 +111,14 @@ export default function Contact() {
         <div className="col contact-main-right">
           <form className="contact_form" noValidate onSubmit={onSubmit}>
             <div className="row gap-3">
-              <div className={`col${error.name ? ` has-validation ` : ""}`}>
+              <div className={`col${error.fromName ? ` has-validation ` : ""}`}>
                 <label htmlFor="name" className="form-label">
                   Name
                 </label>
                 <input
                   type="text"
                   className="form-control"
-                  name="name"
+                  name="fromName"
                   placeholder="Your name"
                   required
                   onChange={onValueChange}
@@ -101,14 +134,14 @@ export default function Contact() {
                   </div>
                 )}
               </div>
-              <div className={`col${error.email ? ` has-validation ` : ""}`}>
+              <div className={`col${error.replyTo ? ` has-validation ` : ""}`}>
                 <label htmlFor="email" className="form-label">
                   E-Mail
                 </label>
                 <input
                   type="email"
                   className="form-control"
-                  name="email"
+                  name="replyTo"
                   placeholder="Your email to connect"
                   required
                   onChange={onValueChange}
@@ -150,12 +183,37 @@ export default function Contact() {
               </div>
             </div>
             <div className="row gap-3 justify-content-end">
-              <button className="btn btn-primary contact-submit">
-                Send
-                <FontAwesomeIcon
-                  icon={isSending ? faCircleNotch : faPaperPlane}
-                  className={`ms-2${isSending ? " animate-spinner " : ""}`}
-                />
+              <button
+                className="btn btn-primary contact-submit"
+                disabled={sendStatus != undefined ? "disabled" : ""}
+              >
+                {sendStatus === "SENDING" ? (
+                  <>
+                    Sending
+                    <FontAwesomeIcon
+                      icon={faCircleNotch}
+                      className={`ms-2 animate-spinner`}
+                    />
+                  </>
+                ) : sendStatus === "SUCCESS" ? (
+                  <>
+                    Sent
+                    <FontAwesomeIcon icon={faCircleCheck} className={`ms-2`} />
+                  </>
+                ) : sendStatus === "FAILED" ? (
+                  <>
+                    Error Sending
+                    <FontAwesomeIcon
+                      icon={faCircleExclamation}
+                      className={`ms-2`}
+                    />
+                  </>
+                ) : (
+                  <>
+                    Send
+                    <FontAwesomeIcon icon={faPaperPlane} className={`ms-2`} />
+                  </>
+                )}
               </button>
             </div>
           </form>

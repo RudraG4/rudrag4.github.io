@@ -1,6 +1,6 @@
 .main-container {
   position: relative;
-  background-color: #f8f7f1;
+  background-color: #f2f6f7;
   color: #0d2322;
   padding-top: 80px;
 }
@@ -13,6 +13,7 @@
 
   > div {
     min-height: calc(100vh - 84px);
+    scroll-snap-align: start;
   }
 }
 

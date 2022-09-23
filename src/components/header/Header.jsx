@@ -1,11 +1,13 @@
-import { useRef } from "react";
-import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { RouteContext } from "../../context/BuildContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./header.scss";
 
 export default function Header() {
   const navBarRef = useRef(null);
+  const location = useLocation();
   const { routes } = useContext(RouteContext);
 
   const onClick = (event) => {
@@ -55,6 +57,23 @@ export default function Header() {
           </ul>
         </div>
       </div>
+      {routes.map((route, _id) => {
+        if (route.path === location.pathname && _id < routes.length - 1) {
+          const nextRoute = routes[_id + 1];
+          return (
+            <Link
+              className="mb-nav-arrow"
+              to={nextRoute.path}
+              data-route={nextRoute.label}
+            >
+              <FontAwesomeIcon
+                icon={faCircleArrowRight}
+                title={nextRoute.label}
+              />
+            </Link>
+          );
+        }
+      })}
     </nav>
   );
 }
