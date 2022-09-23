@@ -17,7 +17,7 @@ export default function Home() {
         <div className="content-intro" aria-label="Introduction">
           <h2 className="content-subtitle">Hey There,</h2>
           <h1 className="content-title" aria-label="Name">
-            I'm {basic_info.short_name}
+            I&apos;m {basic_info.short_name}
           </h1>
           <h1 className="fw-bold">
             <span className="leftarrow">&lt;</span>

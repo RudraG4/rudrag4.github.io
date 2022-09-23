@@ -1,7 +1,6 @@
 function calculateDuration(date1, date2) {
-  let today = new Date();
   let totalmonths = Math.ceil(
-    (new Date(today.getFullYear(), today.getMonth() + 1) - new Date(2018, 8)) /
+    (new Date(date2.getFullYear(), date2.getMonth() + 1) - date1) /
       ((1000 * 60 * 60 * 24 * 365) / 12)
   );
   let years = parseInt(totalmonths / 12, 10);

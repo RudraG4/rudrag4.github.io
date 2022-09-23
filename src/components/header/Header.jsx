@@ -62,6 +62,7 @@ export default function Header() {
           const nextRoute = routes[_id + 1];
           return (
             <Link
+              key={_id}
               className="mb-nav-arrow"
               to={nextRoute.path}
               data-route={nextRoute.label}

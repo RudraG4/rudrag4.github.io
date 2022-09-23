@@ -1,5 +1,5 @@
 import { SplashScreen, Header, ContactLinks } from "../components";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import DataProvider from "../context/DataProvider";
 import "./baselayout.scss";
