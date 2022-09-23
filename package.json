@@ -18,10 +18,10 @@
     "react-dom": "18.2.0",
     "react-router-dom": "6.3.0",
     "react-scripts": "^5.0.1",
-    "sass": "1.54.8"
+    "sass": "1.54.8",
+    "eslint": "^7.11.0"
   },
   "devDependencies": {
-    "eslint": "^8.23.1",
     "eslint-plugin-react": "^7.31.8",
     "gh-pages": "^4.0.0"
   },
