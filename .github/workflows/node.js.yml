@@ -29,6 +29,7 @@ jobs:
     - name: Build Package
       run: npm run build
       env:
+        SKIP_PREFLIGHT_CHECK: true
         REACT_APP_SERVICE_ID: ${{ secrets.REACT_APP_SERVICE_ID }}
         REACT_APP_TEMPLATE_ID: ${{ secrets.REACT_APP_TEMPLATE_ID }}
         REACT_APP_PUBLIC_KEY: ${{ secrets.REACT_APP_PUBLIC_KEY }}
