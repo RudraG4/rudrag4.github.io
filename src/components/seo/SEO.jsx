@@ -1,16 +1,17 @@
 import Helmet from "react-helmet";
 
-export default function SEO({
-  siteLogo,
-  title,
-  description,
-  socialBanner,
-  siteUrl,
-}) {
-  const location = window.location;
+export default function SEO() {
+// {
+// siteLogo,
+// title,
+// description,
+// socialBanner,
+// siteUrl,
+// }
+  // const location = window.location;
   return (
     <Helmet>
-      <title>{title}</title>
+      {/* <title>{title}</title>
       <meta name="robots" content="index,follow" />
       <meta name="description" content={description} />
       <link rel="shortcut icon" href={siteLogo} />
@@ -39,7 +40,7 @@ export default function SEO({
       <meta
         name="twitter:image"
         content={`${siteUrl || location.origin}${socialBanner}`}
-      />
+      /> */}
     </Helmet>
   );
 }
