@@ -1,5 +1,5 @@
-import { RouteContext } from "./BuildContext";
-import { Home, Skills, Experience, Projects, Contact } from "../pages";
+import { RouteContext } from "context";
+import { Home, Skills, Experience, Projects, Contact } from "pages";
 
 const routes = [
   {

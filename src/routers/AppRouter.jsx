@@ -1,7 +1,7 @@
+import React, { useContext } from "react";
 import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
-import { useContext } from "react";
-import { RouteContext } from "../context/BuildContext";
-import BaseLayout from "../layout/BaseLayout";
+import { RouteContext } from "context";
+import BaseLayout from "layouts/BaseLayout";
 
 export default function AppRouter() {
   const { routes } = useContext(RouteContext);
