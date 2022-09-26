@@ -1,11 +1,19 @@
 import Helmet from "react-helmet";
 
-export default function SEO({ title, description, socialBanner, siteUrl }) {
+export default function SEO({
+  siteLogo,
+  title,
+  description,
+  socialBanner,
+  siteUrl,
+}) {
   const location = window.location;
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <link rel="shortcut icon" href={siteLogo} />
+      <link rel="icon" type="image/png" sizes="32x32" href={siteLogo} />
       <link rel="canonical" href={siteUrl} />
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={description} />
