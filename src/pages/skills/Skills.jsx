@@ -1,13 +1,17 @@
-import { useContext } from "react";
-import { DataContext } from "../../context/BuildContext";
+import { useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 import SkillCard from "./SkillCard";
 import "./skills.scss";
 
 export default function Skills() {
-  const { skills_info } = useContext(DataContext);
+  const { Metadata, Stack } = useOutletContext();
+
+  useEffect(() => {
+    document.title = `Skills - ${Metadata.headerTitle}`;
+  }, [Metadata]);
 
   return (
-    <div className="container-fluid skills-container">
+    <div id="skills" className="container-fluid skills-container">
       <div className="skills_title">
         <h1 className="fw-bold">Skills</h1>
         <p>
@@ -16,10 +20,10 @@ export default function Skills() {
         </p>
       </div>
       <div className="skills_wrapper">
-        {skills_info.skills.map((_skill, _id) => (
+        {Object.keys(Stack).map((_skill, _id) => (
           <SkillCard
             key={_id}
-            {..._skill}
+            {...Stack[_skill]}
             transition="slideIn"
             direction="bottom"
             duration={0.6}

@@ -23,6 +23,8 @@ body {
 
 html,body{
   scroll-behavior: smooth;
+  scroll-snap-type: y;
+    scroll-padding-top: 80px;
 }
 
 .App {

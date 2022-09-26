@@ -27,9 +27,9 @@ export default function SkillCard(props) {
       <img
         className="skill-img"
         src={props.image}
+        srcSet={props.image}
         aria-label={props.label}
         alt={props.label}
-        srcSet={props.image}
       />
       <div className="skill-label">{props.label}</div>
     </div>

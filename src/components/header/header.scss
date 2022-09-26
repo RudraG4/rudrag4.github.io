@@ -1,12 +1,16 @@
+.nav-header {
+    position: fixed;
+    top: 0px;
+    left: 6px;
+    right: 6px;
+    background: #f2f6f7;
+    border-bottom: 1px solid #c6bea54a;
+    min-height: 70px;
+    z-index: 1024;
+    box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px;
+}
+
 .navbar {
-  position: fixed;
-  top: 0px;
-  left: 6px;
-  right: 6px;
-  background-color: #f8f7f1;
-  border-bottom: 1px solid #c6bea54a;
-  min-height: 70px;
-  z-index: 1024;
 
   > .container-xl {
     padding-top: 8px;
@@ -20,7 +24,11 @@
   .navbar-nav {
     justify-content: flex-end;
     align-items: center;
-    row-gap: 1rem;
+    
+    .nav-item {
+      display: block;
+      padding: 10px 15px;
+    }
   }
 
   .navbar-toggler {
@@ -47,6 +55,7 @@
       border: 0;
     }
   }
+  
 }
 
 .nav-item {
@@ -69,17 +78,22 @@
     }
 
     &.active {
-      color: #286f6c !important;
+      color: #d7720c !important;
       font-weight: 700;
     }
 
     &:hover {
-      color: #286f6c !important;
+      color: #d7720c !important;
     }
   }
 }
 
 @media (min-width: 992px) {
+  
+  .nav-header {
+    border-bottom: 1px solid transparent;
+    box-shadow: none; 
+  }
   
   .navbar-expand-lg  {
     .navbar-nav {
@@ -89,8 +103,6 @@
   }
 
   .navbar {
-    border-bottom: 1px solid transparent;
-
     > .container-xl {
         .resume-download {
           display: block;

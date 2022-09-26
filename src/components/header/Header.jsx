@@ -1,7 +1,6 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { RouteContext } from "../../context/BuildContext";
+import { RouteContext } from "context";
 import "./header.scss";
 
 export default function Header() {
@@ -16,45 +15,48 @@ export default function Header() {
   };
 
   return (
-    <nav id="navbar" className="navbar navbar-expand-lg">
-      <div className="container-xl">
-        <NavLink to="/" className="navbar-brand">
-          <img
-            className="logo"
-            alt="Logo"
-            src="/logo-dark.png"
-            loading="eager"
-            width="40"
-            height="auto"
-          />
-        </NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onClick={onClick}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="navbar-collapse collapse" ref={navBarRef}>
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            {routes.map((route, _id) => {
-              return (
-                <li key={_id} className="nav-item">
-                  <NavLink
-                    className="nav-link"
-                    aria-current="page"
-                    to={route.path}
-                  >
-                    <div className="text-uppercase">{route.label}</div>
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>
+    <header className="nav-header">
+      <nav id="navbar" className="navbar navbar-expand-lg">
+        <div className="container-xl">
+          <NavLink to="/" className="navbar-brand">
+            <img
+              className="logo"
+              alt="Logo"
+              src="/assets/logo-dark.png"
+              srcSet="/assets/logo-dark.png"
+              loading="eager"
+              width="40"
+              height="auto"
+            />
+          </NavLink>
+          <button
+            className="navbar-toggler"
+            type="button"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            onClick={onClick}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="navbar-collapse collapse" ref={navBarRef}>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              {routes.map((route, _id) => {
+                return (
+                  <li key={_id} className="nav-item">
+                    <NavLink
+                      className="nav-link"
+                      aria-current="page"
+                      to={route.path}
+                    >
+                      <div className="text-uppercase">{route.label}</div>
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

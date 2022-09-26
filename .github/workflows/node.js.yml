@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    types: ["opened"]
     branches: [ "main" ]
 
 jobs:
@@ -28,6 +27,8 @@ jobs:
       
     - name: Build Package
       run: npm run build
+      env:
+        SKIP_PREFLIGHT_CHECK: true
 
     - name: Deploy Package
       run: |
@@ -38,3 +39,6 @@ jobs:
       env:
         github_token: ${{ secrets.DEPLOYMENT_ACCESS }}
         repository: ${{ github.repository }}
+        REACT_APP_SERVICE_ID: ${{ secrets.REACT_APP_SERVICE_ID }}
+        REACT_APP_TEMPLATE_ID: ${{ secrets.REACT_APP_TEMPLATE_ID }}
+        REACT_APP_PUBLIC_KEY: ${{ secrets.REACT_APP_PUBLIC_KEY }}
