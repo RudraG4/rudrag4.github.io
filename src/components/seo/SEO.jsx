@@ -11,6 +11,7 @@ export default function SEO({
   return (
     <Helmet>
       <title>{title}</title>
+      <meta name="robots" content="index,follow" />
       <meta name="description" content={description} />
       <link rel="shortcut icon" href={siteLogo} />
       <link rel="icon" type="image/png" sizes="32x32" href={siteLogo} />
