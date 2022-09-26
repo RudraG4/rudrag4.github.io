@@ -6,7 +6,7 @@ export default function SEO({ title, description, socialBanner, siteUrl }) {
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-
+      <link rel="canonical" href={siteUrl} />
       <meta itemProp="name" content={title} />
       <meta itemProp="description" content={description} />
       <meta
@@ -16,6 +16,7 @@ export default function SEO({ title, description, socialBanner, siteUrl }) {
 
       <meta property="og:url" content={siteUrl} />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={title} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta
