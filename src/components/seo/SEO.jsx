@@ -19,7 +19,7 @@ export default function SEO({
       <meta itemProp="description" content={description} />
       <meta
         itemProp="image"
-        content={`${location.origin || siteUrl}${socialBanner}`}
+        content={`${siteUrl || location.origin}${socialBanner}`}
       />
 
       <meta property="og:url" content={siteUrl} />
@@ -29,7 +29,7 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta
         property="og:image"
-        content={`${location.origin || siteUrl}${socialBanner}`}
+        content={`${siteUrl || location.origin}${socialBanner}`}
       />
 
       <meta name="twitter:card" content="summary_large_image" />
@@ -37,7 +37,7 @@ export default function SEO({
       <meta name="twitter:description" content={description} />
       <meta
         name="twitter:image"
-        content={`${location.origin || siteUrl}${socialBanner}`}
+        content={`${siteUrl || location.origin}${socialBanner}`}
       />
     </Helmet>
   );
