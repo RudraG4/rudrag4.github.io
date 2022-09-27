@@ -1,9 +1,7 @@
-name: Node.js CI
+name: Production CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -42,3 +40,4 @@ jobs:
         REACT_APP_SERVICE_ID: ${{ secrets.REACT_APP_SERVICE_ID }}
         REACT_APP_TEMPLATE_ID: ${{ secrets.REACT_APP_TEMPLATE_ID }}
         REACT_APP_PUBLIC_KEY: ${{ secrets.REACT_APP_PUBLIC_KEY }}
+        NODE_ENV: "production"
