@@ -16,11 +16,11 @@ export default function Home() {
         <div className="content-intro" aria-label="Introduction">
           <h2 className="content-subtitle">Hey There,</h2>
           <h1 className="content-title" aria-label="Name">
-            I&apos;m {Metadata.shortTitle}
+            {`I’m ${Metadata.shortTitle}`}
           </h1>
           <h1 className="fw-bold">
             <span className="leftarrow">&lt;</span>
-            <span style={{ color: "rgb(215, 114, 12)" }}>
+            <span style={{ color: "#d7720c", margin: "0 2px" }}>
               {Metadata.designation}
             </span>
             <span className="rightarrow">&gt;</span>

@@ -26,7 +26,7 @@ export default function BaseLayout() {
             height="auto"
           />
           <div className="fw-bold" style={{ fontSize: "40px" }}>
-            {Config.Metadata.shortTitle}
+            {Config.Metadata.firstName}
           </div>
         </div>
       </SplashScreen>

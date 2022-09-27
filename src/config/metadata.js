@@ -14,7 +14,7 @@ function calculateDuration(date1, date2) {
 export default {
   title: "Rudra Gowda M Patil",
   shortTitle: "Rudra",
-  author: "Rudra Gowda M Patil",
+  firstName: "Rudra Gowda",
   headerTitle: "Rudra Gowda M Patil",
   description:
     "Software Engineer based in Bengaluru. I'm focused on expanding my experience in designing and developing high-performing websites.",
@@ -25,7 +25,7 @@ export default {
   siteRepo: "https://github.com/RudraG4",
   siteLogo: "/assets/logo-dark.png",
   siteLogoLight: "/assets/logo-light.png",
-  image: "/assets/Avatar.png",
+  image: "/assets/Avatar-Rudra-BW.png",
   socialBanner: "/assets/banner.png",
   ...Contact.links,
   serviceId: process.env.REACT_APP_SERVICE_ID,
