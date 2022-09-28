@@ -14,8 +14,8 @@ export default function Card(props) {
         <div className="card_details">
           <div className="card_title">{props.title}</div>
           <div className="card_links">
-            {props.links.repository && (
-              <CustomLink to={props.links.repository} target="_blank">
+            {props.links.source && (
+              <CustomLink to={props.links.source} target="_blank">
                 <FontAwesomeIcon icon={faGithub} title="Source" />
               </CustomLink>
             )}
