@@ -34,7 +34,7 @@ export default function BaseLayout() {
         <div className="position-relative">
           <Header />
           <main className="main-container">
-            <div className="contact-links-container h-100">
+            <div className="contact-links-container">
               <ContactLinks links={Config.Contact.links} />
             </div>
             <div className="outlet-container container-xl">

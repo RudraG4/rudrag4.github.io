@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPaperPlane,
@@ -15,6 +15,7 @@ export default function ContactForm({ serviceId, templateId, publicKey }) {
   const [formData, setFormData] = useState(_initFields);
   const [error, setError] = useState(_initFields);
   const [sendStatus, setSendStatus] = useState();
+  const formNameRef = useRef(null);
 
   const sendEmail = (templateParams) => {
     return emailjs.send(serviceId, templateId, templateParams, publicKey);
@@ -87,6 +88,10 @@ export default function ContactForm({ serviceId, templateId, publicKey }) {
     }
   }, [sendStatus]);
 
+  useEffect(() => {
+    formNameRef.current && formNameRef.current.focus();
+  }, []);
+
   return (
     <form className="contact_form" noValidate onSubmit={onSubmit}>
       <div className="row gap-3">
@@ -102,6 +107,7 @@ export default function ContactForm({ serviceId, templateId, publicKey }) {
             required
             onChange={onValueChange}
             onFocus={onFocusChange}
+            ref={formNameRef}
           />
           <ErrorMessage message={error.fromName} />
         </div>
