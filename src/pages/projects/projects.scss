@@ -118,102 +118,25 @@
 
 .projects_gallery {
   padding: 4rem 0;
-}
-
-.gallery_header {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.gallery_projects {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 1rem;
-  margin-bottom: 0;
-  list-style: none;
-
   
-  .gallery_card {
-    position: relative;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 330px;
+  .header {
+    display: flex;
+    justify-content: center;
     margin-bottom: 1rem;
-    border-radius: 8px;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12), 0 7px 10px -10px rgba(0, 0, 0, 0.125);
-    transition: all 0.45s ease;
-    cursor: pointer;
-    
-    .card_image {
-      transition: all 0.45s ease;
-      overflow: hidden;
-      max-height: 200px;
-      min-height: 200px;
-
-      img {
-        transition: all 0.45s ease;
-        object-fit: cover;
-        object-position: top;
-        max-width: 100%;
-        max-height: 100%;
-        width: 100%;
-        height: 100%;
-        border-radius: 8px 8px 0 0;
-      }
-    }
-
-    .card_details {
-      padding: 1rem;
-
-      .card_title {
-        font-size: 1.25rem;
-        font-weight: 700;
-      }
-
-      .card_links {
-        display: inline-flex;
-        gap: 10px;
-        
-        a {
-          color: inherit;
-          font-size: inherit;
-        }
-      }
-      .card_links,
-      .card_tags,
-      .card_description {
-        font-size: 14px;
-      }
-
-      .card_description {
-        color: gray;
-        height: 65px;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-    }
-
-    &:hover {
-      // transform: scale(1.04);
-
-      .card_image {
-        
-        img {
-          transform: translateY(4px) scale(1.1);
-          border-radius: 6px;
-        }
-      }
-    }
   }
+
+    .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 1rem;
+    margin-bottom: 0;
+    list-style: none;
+    }
 }
 
 .projects_footer {
-  padding: 4rem;
-      background-color: #e0e8ea;
+   padding: 4rem;
+   background-color: #e0e8ea;
     border-radius: 30px;
 }

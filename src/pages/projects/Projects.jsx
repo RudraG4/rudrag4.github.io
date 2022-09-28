@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
+import { CustomLink, Card } from "components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -29,26 +30,24 @@ export default function Projects() {
                     <p className="card_description">{_data.shortDescription}</p>
                   </div>
                   <div className="d-flex flex-wrap flex-row gap-3">
-                    <a
-                      href={_data.deployment}
-                      target="_blank"
-                      rel="noreferrer"
+                    <CustomLink
+                      to={_data.deployment}
                       className="project_link"
+                      target="_blank"
                     >
                       <div className="fw-bold">VIEW LIVE</div>
                       <FontAwesomeIcon icon={faCircleArrowRight} />
-                    </a>
-                    <a
-                      href={_data.repository}
-                      target="_blank"
-                      rel="noreferrer"
+                    </CustomLink>
+                    <CustomLink
+                      to={_data.repository}
                       className="project_link"
+                      target="_blank"
                     >
                       <FontAwesomeIcon
                         icon={faGithub}
                         title="Repository Source"
                       />
-                    </a>
+                    </CustomLink>
                   </div>
                 </div>
                 <div className="card_image col-sm-12 col-md-12 col-lg-6">
@@ -85,49 +84,15 @@ export default function Projects() {
       </div>
       <hr />
       <div className="projects_gallery">
-        <div className="gallery_header">
+        <div className="header">
           <h2 className="fw-bold mb-4">Take a look at my best works</h2>
         </div>
-        <div className="gallery_content">
-          <ul className="gallery_projects">
+        <div className="content">
+          <ul className="projects">
             {Projects.projects.map((_data, _id) => {
               return (
-                <li className="gallery_card" key={_id}>
-                  <div className="d-flex flex-column">
-                    <div className="card_image">
-                      <img
-                        src={_data.banner}
-                        srcSet={_data.banner}
-                        alt={_data.title}
-                      />
-                    </div>
-                    <div className="card_details">
-                      <div className="card_title">{_data.title}</div>
-                      <div className="card_links">
-                        <a
-                          href={_data.repository}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <FontAwesomeIcon icon={faGithub} title="Source" />
-                        </a>
-                        <a
-                          href={_data.deployment}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <FontAwesomeIcon
-                            icon={faCircleArrowRight}
-                            title="View Live"
-                          />
-                        </a>
-                      </div>
-                      <div className="card_tags">{_data.languages}</div>
-                      <div className="card_description">
-                        {_data.description}
-                      </div>
-                    </div>
-                  </div>
+                <li className="position-relative" key={_id}>
+                  <Card {..._data} />
                 </li>
               );
             })}
