@@ -8,7 +8,7 @@ export default function App() {
     <>
       {
         /* eslint-disable-next-line */
-        process.env.NODE_ENV !== "production" && <Analytics />
+        process.env.NODE_ENV === "production" && <Analytics />
       }
       <RouteProvider>
         <AppRouter />
