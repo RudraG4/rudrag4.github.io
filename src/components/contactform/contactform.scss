@@ -1,10 +1,13 @@
 .contact_form {
 
   .form-control {
-    border: 1px solid #000000;
     border-radius: 4px;
     box-shadow: none !important;
     margin-bottom: 1rem;
+    
+    &:focus {
+        border: 1px solid #286f6c;
+    }
   }
 
   textarea {
@@ -22,7 +25,7 @@
   }
 
   .contact-submit {
-    width: 30%;
+    width: 150px;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }

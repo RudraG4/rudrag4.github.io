@@ -5,12 +5,13 @@ import "./header.scss";
 
 export default function Header() {
   const navBarRef = useRef(null);
+  const navTogglerRef = useRef(null);
   const { routes } = useContext(RouteContext);
 
-  const onClick = (event) => {
-    const { ariaExpanded } = event.currentTarget;
+  const toggleNav = () => {
+    const { ariaExpanded } = navTogglerRef.current;
     navBarRef.current.classList.toggle("show");
-    event.currentTarget.ariaExpanded =
+    navTogglerRef.current.ariaExpanded =
       ariaExpanded === "true" ? "false" : "true";
   };
 
@@ -34,7 +35,8 @@ export default function Header() {
             type="button"
             aria-expanded="false"
             aria-label="Toggle navigation"
-            onClick={onClick}
+            onClick={toggleNav}
+            ref={navTogglerRef}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -47,6 +49,7 @@ export default function Header() {
                       className="nav-link"
                       aria-current="page"
                       to={route.path}
+                      onClick={toggleNav}
                     >
                       <div className="text-uppercase">{route.label}</div>
                     </NavLink>

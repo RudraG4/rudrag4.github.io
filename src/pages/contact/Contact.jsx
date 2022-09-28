@@ -16,8 +16,8 @@ export default function Contact() {
     <div className="container-fluid contact-container row flex-column">
       <div className="contact-main row">
         <div className="col contact-main-left">
-          <p className="fs-1">Let&apos;s create something better together.</p>
-          <p className="fs-3">
+          <p className="title">Let&apos;s create something better together.</p>
+          <p className="subtitle">
             <span>Start by </span>
             <span style={{ color: "#D7720C" }}>saying hi!</span>
           </p>
