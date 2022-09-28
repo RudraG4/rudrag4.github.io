@@ -1,4 +1,4 @@
-import { RouteContext } from "context";
+import { RouteContext } from "./index";
 import { Home, Skills, Experience, Projects, Contact } from "pages";
 
 const routes = [

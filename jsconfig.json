@@ -3,12 +3,12 @@
     "baseUrl": "src",
     "paths": {
       "components/*": ["components/*"],
+      "config/*": ["config/*"],
       "context/*": ["context/*"],
-      "data/*": ["data/*"],
+      "hooks/*": ["hooks/*"],
       "layouts/*": ["layouts/*"],
       "pages/*": ["pages/*"],
-      "routers/*": ["routers/*"],
-      "config/*": ["config/*"]
+      "routers/*": ["routers/*"]
     }
   },
   "include": ["src"]

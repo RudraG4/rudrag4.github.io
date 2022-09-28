@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
   faPhone,
-  faMessage,
+  //   faMessage,
+  faBox,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faCodepen,
@@ -11,9 +12,9 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function SocialMediaLink(props) {
+export default function SocialIcons({ type }) {
   let icon, title;
-  switch (props.type) {
+  switch (type) {
     case "email":
       icon = faEnvelope;
       title = "Mail";
@@ -39,12 +40,8 @@ export default function SocialMediaLink(props) {
       title = "Call";
       break;
     default:
-      icon = faMessage;
-      title = "Message";
+      icon = faBox;
+      title = "Contact";
   }
-  return (
-    <a rel="noreferrer" href={props.to} target="_blank">
-      <FontAwesomeIcon icon={icon} title={title} />
-    </a>
-  );
+  return <FontAwesomeIcon icon={icon} title={title} />;
 }
